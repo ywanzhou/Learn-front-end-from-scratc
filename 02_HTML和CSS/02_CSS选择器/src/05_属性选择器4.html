@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性选择器</title>
+    <style>
+        /* 匹配以 name 开头的元素，设置字体颜色为蓝色 */
+        [class ^=name] {
+            color: blue;
+        }
+
+        /* 匹配以 human 结尾的元素，设置字体大小为 2.6rem */
+        [class $=human] {
+            font-size: 2.6rem;
+        }
+
+        /* 匹配包含 em 的元素，设置字体颜色为红色 */
+        [class *=em] {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="name human">白月初</h1>
+    <h1 class="name human">东方月初</h1>
+    <h1 class="name demon">涂山苏苏</h1>
+    <h1 class="name demon">涂山红红</h1>
+    <h1 class="name demon">涂山雅雅</h1>
+    <h1 class="name human">王权富贵</h1>
+</body>
+
+</html>

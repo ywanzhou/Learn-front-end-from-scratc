@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>层级选择器</title>
+    <style>
+        /* body下后代字体大小为28px */
+        body .child {
+            font-size: 28px;
+        }
+
+        /* body的子级div字体大小为34px */
+        body>div {
+            font-size: 34px;
+        }
+
+        /* 设置.child的兄弟元素字体颜色为红色 */
+        .child1~.child {
+            color: red;
+        }
+
+        /* 设置.child的响铃兄弟字体变粗 */
+        .child1+.child {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        目前结构中，我们将 body 元素作为祖先元素
+        body与.parent为父子关系
+        .parent与.child为父子关系
+        body与.child为祖先关系
+        .child1与.child2为相邻兄弟关系
+        .child2与.child3为相邻兄弟关系
+        .child1与.child3为普通兄弟关系
+     -->
+    <div class="parent">
+        父级元素
+        <div class="child child1">子级1</div>
+        <div class="child child2">子级2</div>
+        <div class="child child3">子级3</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>文字阴影</title>
+        <style>
+            p {
+                /* 
+                第一个属性表示阴影颜色
+                第二个属性表示水平偏移量
+                第三个属性表示垂直偏移量
+                第四个属性表示模糊程度
+                */
+                text-shadow: royalblue 10px 5px 3px;
+            }
+            p {
+                text-shadow: royalblue 10px 5px 3px, lightcoral -10px -5px 3px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>文字阴影</p>
+    </body>
+</html>

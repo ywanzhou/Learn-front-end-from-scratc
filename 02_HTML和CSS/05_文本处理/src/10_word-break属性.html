@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>word-break属性</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 20px;
+            }
+            .text {
+                width: 320px;
+                background-color: lightcoral;
+            }
+
+            .normal {
+                word-break: normal;
+            }
+
+            .breakAll {
+                word-break: break-all;
+            }
+
+            .keepAll {
+                word-break: keep-all;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>1. word-break: normal</h3>
+        <p class="normal text">
+            This is a long and Honorificabilitudinitatibus
+            califragilisticexpialidocious
+            longlonglonglonglonglonglonglonglonglonglonglonglonglong
+            ノドがかわくハラがへるなのにチカラがわいてくるキズがうずくアセがとぶだけ
+        </p>
+
+        <h3>2. word-break: break-all</h3>
+        <p class="breakAll text">
+            This is a long and Honorificabilitudinitatibus
+            califragilisticexpialidocious
+            longlonglonglonglonglonglonglonglonglonglonglonglonglong
+            ノドがかわくハラがへるなのにチカラがわいてくるキズがうずくアセがとぶだけ
+        </p>
+
+        <h3>3. word-break: keep-all</h3>
+        <p class="keepAll text">
+            This is a long and Honorificabilitudinitatibus
+            califragilisticexpialidocious
+            longlonglonglonglonglonglonglonglonglonglonglonglonglong
+            ノドがかわくハラがへるなのにチカラがわいてくるキズがうずくアセがとぶだけ
+        </p>
+    </body>
+</html>

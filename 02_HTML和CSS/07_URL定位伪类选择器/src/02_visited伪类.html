@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>visited伪类</title>
+        <style>
+            .visited1 {
+                color: violet;
+            }
+            .visited2 {
+                color: violet;
+                /* 设置一个背景颜色，不然 :visited伪类的背景颜色会失效 */
+                background-color: red;
+            }
+
+            a:visited {
+                color: #666;
+                background-color: lawngreen;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="" class="visited1">该元素设置了background-color属性</a>
+        <hr />
+        <a href="" class="visited2">该元素没有设置background-color属性</a>
+    </body>
+</html>

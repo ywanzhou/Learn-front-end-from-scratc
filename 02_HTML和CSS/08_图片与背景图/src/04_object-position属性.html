@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>object-position属性</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 20px;
+            }
+            div {
+                float: left;
+                margin-right: 24px;
+            }
+            img {
+                width: 320px;
+                height: 120px;
+                border: 1px solid #000;
+                object-fit: contain;
+            }
+            .length {
+                object-position: 10px;
+            }
+            .left {
+                object-position: left;
+            }
+            .center {
+                object-position: center;
+            }
+            .top {
+                object-position: top;
+                height: 500px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <img class="length" src="../image/2.jpg" />
+        </div>
+        <div>
+            <img class="left" src="../image/2.jpg" />
+        </div>
+        <div>
+            <img class="center" src="../image/2.jpg" />
+        </div>
+        <div>
+            <img class="top" src="../image/2.jpg" />
+        </div>
+    </body>
+</html>

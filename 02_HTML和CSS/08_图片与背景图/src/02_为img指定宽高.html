@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>为img指定宽高</title>
+        <style>
+            .image {
+                /* 如果仅仅指定一边，另一半会按照比例自动缩放 */
+                width: 500px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 同时指定宽高如果不和图片保存一直将会拉伸图片 -->
+        <img width="500px" height="300px" src="./../image/4.jpg" alt="蓉蓉姐" />
+        <img class="image" src="./../image/4.jpg" alt="二老板" />
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>object-fit属性</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0 20px;
+            }
+            div {
+                float: left;
+                margin-right: 24px;
+            }
+            img {
+                width: 320px;
+                height: 180px;
+                border: 1px solid #000;
+            }
+            /* 适应效果 */
+            .contain {
+                object-fit: contain;
+            }
+            /* 填充效果 */
+            .cover {
+                object-fit: cover;
+            }
+            /* 拉伸效果 */
+            .fill {
+                object-fit: fill;
+            }
+            /* 原始效果 */
+            .none {
+                object-fit: none;
+            }
+            /* 适应填充二选一 */
+            .scale-down {
+                object-fit: scale-down;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h5>contain</h5>
+            <img class="contain" src="../image/2.jpg" />
+        </div>
+        <div>
+            <h5>cover</h5>
+            <img class="cover" src="../image/2.jpg" />
+        </div>
+        <div>
+            <h5>fill</h5>
+            <img class="fill" src="../image/2.jpg" />
+        </div>
+        <div>
+            <h5>none</h5>
+            <img class="none" src="../image/2.jpg" />
+        </div>
+        <div>
+            <h5>scale-down</h5>
+            <img class="scale-down" src="../image/2.jpg" />
+        </div>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nth-child伪类</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border-top: 1px solid lightcoral;
+            text-align: center;
+        }
+
+        /* 最后一行单元格在底部增加一个边框效果 */
+        tr:last-child td {
+            border-bottom: 1px solid lightcoral;
+        }
+
+        /* 实现隔行换色 */
+        tr:nth-child(even) {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>区域</th>
+        </tr>
+        <tr>
+            <td>梵云飞</td>
+            <td>西西域</td>
+        </tr>
+        <tr>
+            <td>欢都落兰</td>
+            <td>南国</td>
+        </tr>
+        <tr>
+            <td>石宽</td>
+            <td>北山</td>
+        </tr>
+        <tr>
+            <td>涂山红红</td>
+            <td>涂山</td>
+        </tr>
+    </table>
+</body>
+
+</html>

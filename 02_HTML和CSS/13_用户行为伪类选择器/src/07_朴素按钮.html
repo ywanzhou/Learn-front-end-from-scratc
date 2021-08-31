@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朴素按钮</title>
+    <style>
+        button {
+            border: none;
+            color: #409eff;
+            background: #ecf5ff;
+            cursor: pointer;
+            border: 1px solid #b3d8ff;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 12px 20px;
+        }
+
+        /* 值得注意的是 :hover和:active的顺序就是 hover 在前 active 在后 */
+        button:hover,
+        button:focus {
+            background: #409EFF;
+            border-color: #409EFF;
+            color: #fff;
+        }
+
+        button:active {
+            background: #3a8ee6;
+            border-color: #3a8ee6;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <button>朴素按钮</button>
+</body>
+
+</html>

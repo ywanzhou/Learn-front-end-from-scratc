@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>计数器示例</title>
+    <style>
+        #demo ol {
+            counter-reset: section;
+            list-style-type: none;
+        }
+
+        #demo ol li {
+            counter-increment: section;
+        }
+
+        #demo ol li:before {
+            content: counters(section, ".") "_";
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo">
+        <ol>
+            <li>JavaScript基础语法
+                <ol>
+                    <li>数据类型</li>
+                    <li>语句</li>
+                    <li>函数</li>
+                </ol>
+            </li>
+            <li>HTML和CSS
+                <ol>
+                    <li>HTML的概念</li>
+                    <li>
+                        CSS的概念
+                        <ol>
+                            <li>CSS是什么</li>
+                            <li>CSS的语法结构</li>
+                            <li>CSS中的注释</li>
+                        </ol>
+                    </li>
+                    <li>CSS选择器</li>
+                </ol>
+            </li>
+            <li>DOM编程</li>
+        </ol>
+    </div>
+</body>
+
+</html>

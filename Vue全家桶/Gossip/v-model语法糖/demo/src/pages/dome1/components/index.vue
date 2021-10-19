@@ -2,12 +2,12 @@
  * @Description: 演示v-model在组件中的应用
  * @Author: Zhou
  * @Date: 2021-10-19 21:21
- * @LastEditTime: 2021-10-19 21:52
+ * @LastEditTime: 2021-10-19 22:44
  * @LastEditors: Zhou
  * @FilePath: \Learn-front-end-from-scratc\Vue全家桶\Gossip\v-model语法糖\demo\src\pages\dome1\components\index.vue
 -->
 <template>
-  <!-- 2. 监听 input 事件的出发 -->
+  <!-- 3. 监听 input 事件的出发 -->
   <div class="input" contenteditable @input="input"></div>
 </template>
 
@@ -15,16 +15,21 @@
 export default {
   // 1. 接受父级传递的值
   props: {
-    value: {
+    string: {
       type: String,
       default: ''
     }
   },
+  // 2. 配置 model 选项
+  model: {
+    prop: 'string',
+    event: 'strChange'
+  },
   methods: {
-    // 3. 编写 input 事件触发执行的事件处理函数
+    // 4. 编写 input 事件触发执行的事件处理函数
     input (event) {
-      // 4. $emit input 事件，并将 event.target.innerText 作为参数
-      this.$emit('input', event.target.innerText)
+      // 5. $emit strChange 事件，并将 event.target.innerText 作为参数
+      this.$emit('strChange', event.target.innerText)
     }
   },
 

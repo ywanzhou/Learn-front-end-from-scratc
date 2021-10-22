@@ -12,17 +12,6 @@
 6. JavaScript高级语法
 7. ECMAScript新特性
 
-## Node与数据库
-
-1. Node.js基础
-2. Ajax与JSON
-3. HTTP与跨域请求
-4. 包管理工具
-5. 版本控制系统与仓库托管服务
-6. Express
-7. MongoDB数据库
-8. GraphQL
-9. Koa与Egg框架
 
 ## 框架与进阶
 
@@ -37,8 +26,19 @@
 9. 数据结构与算法
 10. Vue源码解析
 
+## Node与数据库
 
-## 跨端开发
+1. Node.js基础
+2. Ajax与JSON
+3. HTTP与跨域请求
+4. 包管理工具
+5. 版本控制系统与仓库托管服务
+6. Express
+7. MongoDB数据库
+8. GraphQL
+9. Koa与Egg框架
+
+## 泛客户端开发
 
 1. 小程序开发、微信原生、uniApp、京东小程序框架，各种UI组件库
 2. Flutter与Dart

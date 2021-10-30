@@ -9,7 +9,7 @@
   }
   // 定义 set 方法
   function setPersonName(person: Person, name: string): void {
-    person.name = name // Cannot assign to 'name' because it is a read-only property.
+    // person.name = name // Cannot assign to 'name' because it is a read-only property.
   }
   setPersonName(person, '彼岸繁華')
 })()

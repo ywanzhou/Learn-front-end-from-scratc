@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>padding属性</title>
+  <style>
+    span {
+      /* 为文字设置一个边框 */
+      border: 1px solid lightcoral;
+      display: inline-block;
+    }
+
+    .box {
+      width: 400px;
+      background-color: lightskyblue;
+      /* 4 个边的内边距都为40px */
+      padding: 40px;
+      /* 上下20px 左右40px */
+      padding: 20px 40px;
+      /* 上20px 左右30px 下40px */
+      padding: 20px 30px 40px;
+      /* 上20px 右20px 下30px 左30px */
+      /* padding: 20px 20px 30px 40px; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <span>这是一段文本内容，有很多很多内容~有很多很多内容~有很多很多内容~有很多很多内容~有很多很多内容~有很多很多内容~有很多很多内容~有很多很多内容~</span>
+  </div>
+</body>
+
+</html>

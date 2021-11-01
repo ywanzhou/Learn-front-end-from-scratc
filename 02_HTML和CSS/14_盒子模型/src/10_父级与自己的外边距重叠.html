@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+  <title>父级与子级的外边距重叠</title>
+  <style>
+    .box {
+      line-height: 50px;
+      text-align: center;
+      color: #333;
+    }
+
+    .parent {
+      width: 600px;
+      height: 100px;
+      background-color: #f60;
+      margin-top: 100px;
+    }
+
+    .child {
+      width: 600px;
+      height: 50px;
+      background-color: #a90;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box parent">
+    <div class="box child">child</div>
+  </div>
+</body>
+
+</html>

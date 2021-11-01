@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+  <title>相邻兄弟元素的外边距重叠</title>
+  <style>
+    .box {
+      width: 600px;
+      height: 100px;
+      line-height: 50px;
+      text-align: center;
+      color: #333;
+    }
+
+    .box1 {
+      background-color: #f60;
+      margin-bottom: 100px;
+    }
+
+    .box2 {
+      background-color: #a90;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box box1">box1</div>
+  <div class="box box2">box2</div>
+</body>
+
+</html>

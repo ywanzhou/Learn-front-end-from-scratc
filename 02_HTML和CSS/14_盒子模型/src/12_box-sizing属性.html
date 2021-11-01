@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>box-sizing属性</title>
+  <style>
+    .box1 {
+      height: 100px;
+      width: 300px;
+      background-color: lightcoral;
+      padding: 50px;
+      border: 40px solid #f60;
+      margin: 10px;
+    }
+
+    .box2 {
+      box-sizing: border-box;
+      height: 100px;
+      width: 300px;
+      background-color: lightgreen;
+      padding: 50px;
+      border: 40px solid #f60;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box1"></div>
+    <div class="box2"></div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+  <title>使用 CSS 的 overflow 属性</title>
+  <style>
+    .news {
+      background-color: #ff4757;
+      border: solid 1px #eccc68;
+      width: 1000px;
+      margin: 0 auto;
+      /* 通过添加 overflow: hidden; 实现清除浮动效果 */
+      overflow: hidden;
+    }
+
+    .news img {
+      float: left;
+      width: 700px;
+    }
+
+    .news h1 {
+      float: right;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="news">
+    <img src="../image/img.jpg" />
+    <h1>some text</h1>
+    <div class="clear"></div>
+  </div>
+</body>
+
+</html>

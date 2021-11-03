@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge" />
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1.0" />
+  <title>sticky属性值</title>
+  <style>
+    .container {
+      background: #eee;
+      width: 600px;
+      height: 1000px;
+      margin: 0 auto;
+    }
+
+    .title {
+      /*适配safari浏览器*/
+      position: -webkit-sticky;
+      position: sticky;
+      height: 60px;
+      background: #ff7300;
+      top: 0px;
+      font-size: 30px;
+      text-align: center;
+      color: #fff;
+      line-height: 60px;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div>
+      <div class="title">内容1
+      </div>
+      <img src="../image/demo.jpg" />
+    </div>
+    <div>
+      <div class="title">内容2</div>
+      <img src="../image/demo.jpg" />
+    </div>
+    <div>
+      <div class="title">内容3</div>
+      <img src="../image/demo.jpg" />
+    </div>
+    <div>
+      <div class="title">内容4</div>
+      <img src="../image/demo.jpg" />
+      <img src="../image/demo.jpg" />
+    </div>
+  </div>
+</body>
+
+</html>

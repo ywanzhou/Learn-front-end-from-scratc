@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>下拉框定位二三事</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #edeff0;
+    }
+
+    /*容器样式*/
+    .container {
+      margin-top: 120px;
+      margin-left: 240px;
+      overflow: hidden;
+    }
+
+    /*输入框样式*/
+    .input {
+      width: 240px;
+      line-height: 18px;
+      padding: 10px;
+      margin: 0;
+      border: 0 none;
+      border-radius: 4px 4px 0 0;
+      border: 0.5px solid transparent;
+      transition: all 0.3s;
+    }
+
+    .input:focus {
+      outline: 0 none;
+      border: 0.5px solid #40a9ff;
+    }
+
+    .list {
+      /*默认不显示，当输入内容时，通过js控制其显示*/
+      /*display:none;*/
+      position: absolute;
+      width: 260px;
+      /*通过margin来控制其显示的位置*/
+      margin: 39px 0 0 -1px;
+      padding-left: 0;
+      list-style-type: none;
+      border: 1px solid #e6e8e9;
+      border-radius: 0 0 4px 4px;
+      background-color: #fff;
+      box-shadow: 0px 1px 2px #d5d7d8;
+      font-size: 12px;
+    }
+
+    /*列表项样式以及悬停样式*/
+    .list>li {
+      line-height: 30px;
+      padding-left: 12px;
+    }
+
+    .list>li:hover {
+      background-color: #f9f9f9;
+    }
+
+    .list a {
+      display: block;
+      color: #5e5e5e;
+      text-decoration: none;
+    }
+
+    .list a:hover {
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <ul class="list">
+      <li>
+        <a>从头学前端之JavaScript基础语法</a>
+      </li>
+      <li>
+        <a>从头学前端之HTML5和CSS3</a>
+      </li>
+      <li>
+        <a>从头学前端之JavaScript高级语法</a>
+      </li>
+      <li>
+        <a>从头学前端之DOM编程</a>
+      </li>
+    </ul>
+    <input class="input"
+           placeholder="请输入内容" />
+  </div>
+</body>
+
+</html>

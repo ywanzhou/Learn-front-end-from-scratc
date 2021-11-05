@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>z-index属性</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      position: absolute;
+      background-color: #fffae8;
+    }
+
+    .container1 {
+      z-index: 1;
+      background-color: lightcoral;
+    }
+
+    /* container2 的层级大于 container1 */
+    .container2 {
+      z-index: 2;
+      left: 120px;
+      background-color: blueviolet;
+    }
+
+
+    .item {
+      position: relative;
+      height: 200px;
+      width: 200px;
+      line-height: 200px;
+      text-align: center;
+      font-size: 80px;
+    }
+
+    /* container1 子级的层级再大，也不会覆盖 container2 子级 */
+    .item1 {
+      z-index: 999;
+      background-color: #e6005c;
+    }
+
+    .item2 {
+      z-index: 1;
+      background-color: #777bce;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container container1">
+    <div class="item item1">1</div>
+  </div>
+  <div class="container container2">
+    <div class="item item2">2</div>
+  </div>
+</body>
+
+</html>

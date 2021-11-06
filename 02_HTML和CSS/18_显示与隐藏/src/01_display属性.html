@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>display属性</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .box {
+      box-sizing: border-box;
+      height: 400px;
+      width: 400px;
+      background-color: lightcoral;
+      border: 1px solid #000;
+      margin: 0 auto;
+      color: #333;
+      font-size: 88px;
+      line-height: 400px;
+      text-align: center;
+    }
+
+    /* 凡是带有 hidden 的 class 元素都将不会进行显示 */
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box hidden">1</div>
+  <div class="box">2</div>
+</body>
+
+</html>

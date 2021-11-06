@@ -1,0 +1,39 @@
+/* 引入一个卡哇伊的字体样式 */
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  display: block;
+  position: relative;
+  width: 380px;
+  height: 100px;
+  margin: 50px;
+  background: linear-gradient(to right, #ea21a2, yellow 40%, #00a3ff 80%);
+  background-size: 500%;
+  border-radius: 50px;
+
+  border: none;
+
+  /* 应用导入的字体 */
+  font-family: 'Varela Round';
+  font-size: 30px;
+  color: #444;
+  letter-spacing: 2px;
+  cursor: pointer;
+
+  overflow: hidden;
+  transition: all 0.5s;
+}
+.btn:hover span {
+  position: absolute;
+  display: block;
+}
+
+/* 悬停时按钮渐变取消 */
+.btn:hover {
+  font-size: 31px;
+}

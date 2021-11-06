@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>多行文字溢出处理</title>
+  <style>
+    div {
+      height: 60px;
+      width: 400px;
+      margin: 0 auto;
+      border: 0.5px solid black;
+      line-height: 20px;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      /* 
+          display属性值为带前缀的值: 不同浏览器提供的显示效果
+          * -webkit-box: Chrome\Edge\Safari浏览器提供
+        */
+      display: -webkit-box;
+      /* 
+          -webkit-line-clamp属性:
+          * 注意: 该属性是Webkit内核的私有属性(其他浏览器可能提供不同的属性)
+          * 作用: 设置文本内容显示的行数
+        */
+      -webkit-line-clamp: 3;
+      /* 
+          -webkit-box-orient属性:
+          * 作用: 在父元素设置,子元素的排列方式
+          * 值:
+              * vertical: 表示垂直
+              * horizontal: 表示水平
+        */
+      -webkit-box-orient: vertical;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    所谓的溢出就是当元素里的内容（包括文本内容、图片、视频等内容）的大小超出盒子的大小区域时，内容区域会有一部分显示在盒子所在区域的外部，这就是内容给溢出。
+
+    这里讲解的溢出处理主要包含两种，第一种是对块溢出的处理，第二种是对文字溢出的处理。
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>组合表单元素</title>
+  <style>
+    input {
+      outline: none;
+      border: none;
+      border-bottom: 1px solid lightsalmon;
+      margin: 10px 30px 10px -5px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <form action="#">
+    <fieldset>
+      <legend>这是一个输入账号和密码的表单</legend>
+      <label for="username">用户名：</label>
+      <input type="text"
+             class="username"
+             id="username"
+             placeholder="请输入你的用户名">
+      <label for="passwd">密码：</label>
+      <input type="text"
+             class="passwd"
+             id="passwd"
+             placeholder="请输入你的密码">
+    </fieldset>
+  </form>
+</body>
+
+</html>

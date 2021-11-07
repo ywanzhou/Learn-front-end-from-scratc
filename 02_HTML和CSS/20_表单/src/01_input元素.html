@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>input元素</title>
+</head>
+
+<body>
+  <form method="GET"
+        action="#">
+    <!-- 
+      disabled 属性，设置为禁用的
+      readonly 属性，设置为只读
+      autofocus 属性，自动获取焦点
+      placeholder 属性，设置提示信息
+      -->
+    <input type="text"
+           value="我是一段文本">
+    <br>
+    <!--
+      单选框或者复选框要为其定义相同的name属性，表示为一组 
+      checked 属性：表示当前选框默认被选中 
+    -->
+    <input type="radio"
+           name="like"
+           checked>我是单选1号
+    <input type="radio"
+           name="like">我是单选2号
+    <input type="radio"
+           name="like">我是单选3号
+
+    <br>
+
+    <input type="button"
+           value="普通按钮">
+
+    <br>
+    <!-- 可以选择多个文件 -->
+    <input type="file"
+           multiple>
+    <!-- 设置选择文件的类型 -->
+    <input type="file"
+           accept="video/*">
+    <!-- 一般用来存储一些不想用户知道的数据内容, 比如用户ID -->
+    <input type="hidden">
+
+  </form>
+</body>
+
+</html>

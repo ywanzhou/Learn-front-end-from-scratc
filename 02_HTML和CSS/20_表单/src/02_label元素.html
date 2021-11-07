@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>label元素</title>
+</head>
+
+
+<body>
+  <!-- 
+    <label>元素：一般配合<input元素一起使用>
+      * 作用：为某个文本框增加内容提示
+      * 属性：
+        * for 属性：设置的值必须与<input>元素的id值一致
+    -->
+  <form action="#">
+    <div>
+      <label for="username">用户名：</label>
+      <input type="text"
+             class="username"
+             id="username"
+             placeholder="请输入你的用户名">
+    </div>
+    <div>
+      <label for="passwd">密码：</label>
+      <input type="text"
+             class="passwd"
+             id="passwd"
+             placeholder="请输入你的密码">
+    </div>
+  </form>
+</body>
+
+</html>

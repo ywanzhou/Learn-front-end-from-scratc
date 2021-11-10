@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 8px;
+}
+.parent {
+  height: 500px;
+  width: 500px;
+  background-color: #eebefa;
+  margin: 0 auto;
+}
+.child {
+  height: 300px;
+  width: 300px;
+  background-color: #f783ac;
+}

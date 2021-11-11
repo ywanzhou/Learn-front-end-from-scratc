@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>等分布局</title>
+  <link rel="stylesheet"
+        href="public.css">
+  <style>
+    .item {
+      /* 开启浮动，每个元素占 25% 的宽度 */
+      width: 25%;
+      float: left;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 父元素清除浮动 -->
+  <div class="container clearfix">
+    <div class="item item1"></div>
+    <div class="item item2"></div>
+    <div class="item item3"></div>
+    <div class="item item4"></div>
+  </div>
+</body>
+
+</html>

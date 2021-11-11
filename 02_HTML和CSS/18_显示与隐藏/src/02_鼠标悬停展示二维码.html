@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>鼠标悬停展示二维码</title>
+  <!-- 引入一个花里胡哨的按钮 -->
+  <link rel="stylesheet"
+        href="./button.css">
+  <style>
+    .qr-code {
+      width: 200px;
+      height: 200px;
+      line-height: 200px;
+      background-color: gray;
+      text-align: center;
+      font-size: 64px;
+      margin-left: 140px;
+      /* 默认隐藏 */
+      display: none;
+    }
+
+    .btn:hover~.qr-code {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="btn">
+    ⛱️ 悬停展示二维码
+  </button>
+  <div class="qr-code">
+    二维码
+  </div>
+</body>
+
+</html>

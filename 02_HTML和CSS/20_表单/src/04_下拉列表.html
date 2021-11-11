@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>下拉列表</title>
+</head>
+
+<body>
+
+  <body>
+    <form action="#">
+      <!-- 
+        <select>元素：下拉列表
+          * 默认为单选
+          * 通过multiple属性来设置是否支持多选
+          * 通过size属性设置同时可见的行数
+            * 可以通过Ctrl和Shift键进行多选
+          * <option>元素：列表项
+            * disabled属性：表示不可选
+            * selected属性：表示默认选择
+            * value属性：表示该选项被选中时提交给表单的值，如果省略了这个属性，值就从选项元素的文本内容中获取。
+          * <optgroup> 为<select> 元素中的选项创建分组。
+       -->
+      <select>
+        <option value="xiaoming">小明</option>
+        <option value="xiaobai"
+                selected>小白</option>
+        <option value="xiaolv">小绿</option>
+        <option value="xiaohua"
+                disabled>小花</option>
+      </select>
+      <select multiple
+              size="4">
+        <option value="xiaoming">小明</option>
+        <option value="xiaobai"
+                selected>小白</option>
+        <option value="xiaolv">小绿</option>
+        <option value="xiaohua"
+                selected>小花</option>
+      </select>
+      <select>
+        <optgroup>
+          <option value="xiaoming">小明</option>
+          <option value="xiaobai"
+                  selected>小白</option>
+          <option value="xiaolv">小绿</option>
+          <option value="xiaohua"
+                  disabled>小花</option>
+        </optgroup>
+        <optgroup>
+          <option value="xiaoming">小明</option>
+          <option value="xiaobai">小白</option>
+          <option value="xiaolv">小绿</option>
+          <option value="xiaohua">小花</option>
+        </optgroup>
+      </select>
+    </form>
+  </body>
+</body>
+
+</html>

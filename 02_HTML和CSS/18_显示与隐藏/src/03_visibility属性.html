@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>visibility属性</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+    }
+
+    .box1 {
+      background-color: red;
+      /* 
+          设置 visibility 属性为 hidden 时，该元素在隐藏，但是在HTML页面中所占区域依然存在。
+          此属性默认值为(visible) 
+          */
+      visibility: hidden;
+    }
+
+    .box2 {
+      background-color: blueviolet;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1"></div>
+  <div class="box2"></div>
+</body>
+
+</html>

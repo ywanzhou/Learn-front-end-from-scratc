@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>overflow属性</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+    }
+
+    .overflow {
+      width: 300px;
+      height: 400px;
+      background-color: lightskyblue;
+      margin-left: 30px;
+      margin-top: 30px;
+    }
+
+    .box {
+      width: 240px;
+      height: 500px;
+      background-color: lightcoral;
+    }
+
+    .visible {
+      overflow: visible;
+    }
+
+    .hidden {
+      overflow: hidden;
+    }
+
+    .scroll {
+      overflow: scroll;
+    }
+
+    .auto {
+      overflow: auto;
+    }
+
+    code {
+      display: block;
+      text-align: center;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overflow visible">
+    <code>overflow: visible;</code>
+    <div class="box"></div>
+  </div>
+  <div class="overflow hidden">
+    <code>overflow: hidden;</code>
+    <div class="box"></div>
+  </div>
+  <div class="overflow scroll">
+    <code>overflow: scroll;</code>
+    <div class="box"></div>
+  </div>
+  <div class="overflow auto">
+    <code>overflow: auto;</code>
+    <div class="box"></div>
+  </div>
+</body>
+
+</html>

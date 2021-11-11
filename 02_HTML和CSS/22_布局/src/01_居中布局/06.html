@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>水平居中</title>
+  <link rel="stylesheet"
+        href="public.css">
+  <style>
+    .parent {
+      height: 300px;
+      /* 开启 Flex 布局 */
+      display: flex;
+      /* 通过 justify-content 属性实现居中 */
+      justify-content: center;
+    }
+
+    .child {
+      /* 或者 子元素 margin: auto*/
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+</body>
+
+</html>

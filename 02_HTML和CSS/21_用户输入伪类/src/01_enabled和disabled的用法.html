@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>:enabled和:disabled的用法</title>
+  <style>
+    input:enabled {
+      outline: none;
+    }
+
+    input:disabled {
+      /* 禁用状态背景为灰色 */
+      background-color: gray;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text"
+         placeholder="可用状态">
+  <input type="text"
+         disabled
+         placeholder="禁用状态">
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>datalist元素</title>
+</head>
+
+<body>
+  <form action="#">
+    <!-- 
+      <input>元素与<datalist>元素配合使用
+      * <input>元素设置list属性: 值与<datalist>元素的id属性值一致
+      * <datalist>元素设置id属性
+    -->
+    <input list="list"
+           placeholder="信息">
+    <!-- 
+      <datalist>元素:
+      * 作用: 提供了一组列表项
+      与<select>元素的区别:
+      * <select>元素: 必须在该元素内部定义<option>元素
+      * <datalist>元素: 是一个独立的列表项
+        * 允许复用的
+    -->
+    <datalist id="list">
+      <option value="一碗周"></option>
+      <option value="掘金"></option>
+      <option value="https://juejin.cn/user/3350967174838701"></option>
+    </datalist>
+  </form>
+</body>
+
+</html>

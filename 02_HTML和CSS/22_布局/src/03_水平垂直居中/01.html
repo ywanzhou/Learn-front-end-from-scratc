@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>水平垂直布局</title>
+  <link rel="stylesheet"
+        href="public.css">
+  <style>
+    .parent {
+      /* 1. 设置行高等于容器高度 */
+      line-height: 500px;
+      /* 通过 text-align: center; 实现水平居中 */
+      text-align: center;
+    }
+
+    .child {
+      /* 将子级元素设置为水平块级元素 */
+      display: inline-block;
+      /* 通过 vertical-align: middle; 实现垂直居中 */
+      vertical-align: middle;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+</body>
+
+</html>

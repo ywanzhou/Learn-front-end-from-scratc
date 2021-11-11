@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+}
+.container {
+  height: 400px;
+  background-color: #eebefa;
+}
+.item {
+  height: 100%;
+}
+.item1 {
+  background-color: #eccc68;
+}
+.item2 {
+  background-color: #a6c1fa;
+}
+.item3 {
+  background-color: #fa7d90;
+}
+.item4 {
+  background-color: #b0ff70;
+}
+/* 清除浮动 */
+.clearfix:after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}

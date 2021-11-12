@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul id="parent">
+    <li>苹果</li>
+    <li id="mi">小米</li>
+    <li>锤子</li>
+  </ul>
+  <script>
+    var parent = document.getElementById('parent')
+
+    //创建一个子节点
+    var newLi = document.createElement('li')
+    //创建文本节点
+    var textNode = document.createTextNode('华为')
+    //将文本节点追加到新的子节点中
+    newLi.appendChild(textNode)
+    //获取目标节点
+    var mi = document.getElementById('mi')
+    //将新建的子节点插入到小米之前
+    parent.insertBefore(newLi, mi)
+    //如果要插入的节点之前的那个节点为 null ，则默认插入到最后
+    var nli = document.createElement('li')
+    var tNode = document.createTextNode('三星')
+    nli.appendChild(tNode)
+    parent.insertBefore(nli, null)
+  </script>
+</body>
+
+</html>

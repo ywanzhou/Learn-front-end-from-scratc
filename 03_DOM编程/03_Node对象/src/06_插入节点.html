@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul id="parent">
+    <li>苹果</li>
+    <li id="mi">小米</li>
+    <li>锤子</li>
+  </ul>
+  <script>
+    var parent = document.getElementById('parent')
+
+    //创建一个子节点
+    var newLi = document.createElement('li')
+    //创建文本节点
+    var textNode = document.createTextNode('华为')
+    //将文本节点追加到新的子节点中
+    newLi.appendChild(textNode)
+    //将新的子节点追加到父级节点中
+    parent.appendChild(newLi)
+  </script>
+</body>
+
+</html>

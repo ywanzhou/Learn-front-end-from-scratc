@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>继承链关系</title>
+</head>
+
+<body>
+  <script>
+    console.log(Document.prototype instanceof Node)         // true
+    console.log(Node.prototype instanceof EventTarget)      // true
+
+    console.log(Document.prototype instanceof EventTarget)  // true
+  </script>
+</body>
+
+</html>

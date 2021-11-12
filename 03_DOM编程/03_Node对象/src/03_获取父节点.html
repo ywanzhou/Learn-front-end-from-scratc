@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- <body>
+  <ul id="parent">
+    <li>苹果</li>
+    <li id="mi">小米</li>
+    <li>华为</li>
+  </ul>
+  <script>
+    //作为子节点
+    var mi = document.getElementById('mi')
+    //通过子节点获取父节点
+    var parent1 = mi.parentNode
+    console.log(parent1)// ul
+  </script>
+</body> -->
+
+<body>
+  <ul id="parent">
+    <li>苹果</li>
+    <li id="mi">小米</li>
+    <li>华为</li>
+  </ul>
+  <script>
+    //<html>作为子节点
+    var html = document.documentElement
+    //通过子节点获取父节点
+    console.log(html.parentNode)//文档节点
+    console.log(html.parentElement)// null
+  </script>
+</body>
+
+</html>

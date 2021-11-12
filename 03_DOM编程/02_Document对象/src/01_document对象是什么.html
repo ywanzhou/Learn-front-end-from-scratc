@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Document对象是什么</title>
+</head>
+
+<body>
+  <script>
+    /*
+      document 对象
+      * DOM预定义 -> 已经被创建完毕，可以直接使用，无需创建
+      * 如果直接打印得到的是 HTML 页面的源代码 -> 该对象代表当前 HTML 页面
+    */
+    console.log(document) // 得到当前 HTML 页面的源代码
+    // 检测 document 是否是一个对象
+    console.log(document instanceof Object) // true
+    // document对象的属性和方法被定义在原型上
+    console.log(Document.prototype) // 得到其属性和方法
+  </script>
+</body>
+
+</html>

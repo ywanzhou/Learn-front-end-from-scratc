@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul id="parent">
+    <li>苹果</li>
+    <li id="mi">小米</li>
+    <li>锤子</li>
+  </ul>
+  <script>
+    var parent = document.getElementById('parent')
+    // childNodes属性-获取指定节点的所有子节点
+    var children = parent.childNodes
+    console.log(children) // NodeList(7) [text, li, text, li#mi, text, li, text]
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Node对象是什么</title>
+</head>
+
+
+<body>
+  <button id="btn">按钮</button>
+  <script>
+    var btn = document.getElementById('btn')
+    //定位的的页面元素其实就是Node对象，称为节点元素
+    console.log(btn instanceof NOde)//true
+    //自己创建的节点也是Node对象
+    var button = document.createElement('button')
+    console.log(button instanceof Node)//true
+    //获取其全部属性and方法
+    console.log(Node.prototype)
+  </script>
+</body>
+
+</html>

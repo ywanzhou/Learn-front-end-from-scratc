@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Document.getElementById</title>
+</head>
+
+<body>
+  <div id="div1"></div>
+  <script>
+    // 通过Document对象的getElementById()方法定义元素
+    var div1 = document.getElementById('div1')
+    // 测试打印结果 -> 结果为对象元素的 HTML 代码
+    console.log(div1)
+    // 在DOM中无论是使用的还是得到的结果都应该是一个对象
+    console.log(div1 instanceof Object) // true
+    // DOM 中提供了一系列对象，对应 HTML 页面的每一个元素。
+    // <div> 元素对应具有HTMLDivElement对象
+    console.log(div1 instanceof HTMLDivElement) // true
+  </script>
+</body>
+
+</html>

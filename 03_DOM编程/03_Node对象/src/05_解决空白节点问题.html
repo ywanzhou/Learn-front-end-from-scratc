@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul id="parent">
+    <li>苹果</li>
+    <li id="mi">小米</li>
+    <li>锤子</li>
+  </ul>
+  <script>
+    var parent = document.getElementById('parent');
+    // childNodes属性-获取指定节点的所有子节点
+    var children = parent.childNodes;
+    console.log(children);
+
+    //用于存取真正的字节集
+    var arr = []
+    for (var i = 0; i < children.length; i++) {
+      var child = children[i]
+      if (child.nodeType === 1) {
+        // Array.push()方法用于往数组追加数据
+        arr.push(child)
+      }
+    }
+    console.log(arr)// Array(3)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>document.getElementByName</title>
+</head>
+
+<body>
+  <div name="boxes"></div>
+  <div name="boxes"></div>
+  <div name="boxes"></div>
+  <script>
+    // name 属性不唯一，得到的结果可能是多个，也有可能是一个
+    var boxes = document.getElementsByName('boxes')
+    // 得到的是一个 NodeList 集合， 是一个类数组对象。如果想要得到某个元素的话，需要使用索引值
+    console.log(boxes instanceof NodeList) // true
+    console.log(boxes[0])
+  </script>
+</body>
+
+</html>

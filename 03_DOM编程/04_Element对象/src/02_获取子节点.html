@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul id="phone">
+    <li>小米</li>
+    <li>华为</li>
+    <li>中兴</li>
+  </ul>
+  <script>
+    // 获取父节点
+    var phone = document.getElementById('phone')
+    // 获取所有子节点
+    var children = phone.children
+    // 不存在空白节点问题
+    console.log(children)
+    // 获取第一个子节点
+    var firstChild = phone.firstElementChild
+    console.log(firstChild)
+    // 获取最后一个子节点
+    var lastChild = phone.lastElementChild
+    console.log(lastChild)
+    // 获取子节点个数
+    var childCount = phone.childElementCount
+    console.log(childCount) // 3
+  </script>
+</body>
+
+</html>

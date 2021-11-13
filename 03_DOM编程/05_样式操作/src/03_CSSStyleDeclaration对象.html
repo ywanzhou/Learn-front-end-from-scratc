@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="d1"
+       style="width: 200px;height: 200px;border: 1px solid #000;background: #666;">
+  </div>
+  <script>
+    var d1 = document.getElementById('d1')
+    var style = d1.style
+    // 获取CSS声明块的内容
+    console.log(style.cssText)  // width: 200px; height: 200px; border: 1px solid rgb(0, 0, 0); background: rgb(102, 102, 102);
+    // 获取属性长度(不一定与设置的个数一致)
+    console.log(style.length)   // 29
+    // 获取索引值为 20 的属性名
+    console.log(style.item(20)) // background-position-x
+    // 获取 background 的属性值
+    console.log(style.getPropertyValue('background')) // rgb(102, 102, 102)
+  </script>
+</body>
+
+</html>

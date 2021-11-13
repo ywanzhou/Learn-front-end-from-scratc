@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="d1"
+       style="width: 200px;height: 200px;border: 1px solid #000;background: #666;">
+  </div>
+  <script>
+    var d1 = document.getElementById('d1')
+    // 方法1.利用属性操作的方式
+    // 修改宽度
+    d1.setAttribute('style', 'width: 300px;height: 100px;border: 1px solid #000;background: #666;')
+
+    // 方法2.利用HTMLElement对象的style属性
+    var style = d1.style
+    // 修改背景
+    style.background = '#ddd'
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul id="phone">
+    <li>小米</li>
+    <li id="hw">华为</li>
+    <li>中兴</li>
+  </ul>
+  <script>
+    var hw = document.getElementById('hw')
+    // 获取后一个节点
+    var next = hw.nextElementSibling  // 中兴
+    console.log(next)
+    // 获取前一个节点
+    var pre = hw.previousElementSibling  // 小米
+    console.log(pre)
+  </script>
+</body>
+
+</html>

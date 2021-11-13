@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>获取有效属性</title>
+  <style>
+    .cls {
+      height: 200px;
+      background-color: rgb(255, 255, 0);
+    }
+  </style>
+</head>
+
+<body>
+  <div style="width: 200px; background-color: rgb(255, 0, 255);"
+       class="cls"
+       id="d1"></div>
+  <script>
+    var div = document.getElementById('d1')
+    var style = window.getComputedStyle(div)
+    // 获取有效的 background-color 的值
+    console.log(style.backgroundColor) // rgb(255, 0, 255)
+  </script>
+</body>
+
+</html>

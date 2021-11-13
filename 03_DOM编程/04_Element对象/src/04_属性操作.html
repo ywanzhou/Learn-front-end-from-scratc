@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btn"
+          class="cls">按钮</button>
+  <script>
+    var btn = document.getElementById('btn')
+
+    // 获取属性值
+    console.log(btn.getAttribute('class'))  // cls
+    /*
+      设置属性 -> 方法 setAttribute() 
+      * 语法结构：element.setAttribute(name, value);
+        * name：表示要设置的属性名称
+        * value：表示要设置的属性值
+    */
+    btn.setAttribute('name', 'button')
+
+    // 删除属性
+    btn.removeAttribute('class')
+    // 检测是否具有某个属性
+    console.log(btn.hasAttribute('class'))  // false
+    console.log(btn.hasAttribute('name'))   // true
+
+  </script>
+</body>
+
+</html>

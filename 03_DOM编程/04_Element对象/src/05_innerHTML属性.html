@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul id="phone">
+    <li>华为</li>
+    <li>小米</li>
+    <li>中兴</li>
+  </ul>
+  <script>
+    // 获取父级元素
+    var phone = document.getElementById('phone')
+
+    // 获取HTML代码
+    var htmlCode = phone.innerHTML
+    console.log(htmlCode)
+    /*  执行结果
+    <li>华为</li>
+    <li>小米</li>
+    <li>中兴</li>
+    */
+    // 设置HTML代码 -> 通过字符串拼接的方式
+    htmlCode += '<li>vivo</li>'
+    // 修改HTML代码
+    phone.innerHTML = htmlCode
+  </script>
+</body>
+
+</html>

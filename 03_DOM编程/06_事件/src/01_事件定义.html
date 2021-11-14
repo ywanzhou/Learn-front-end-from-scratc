@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>事件定义</title>
+</head>
+
+<body>
+  <button id="btn">按钮</button>
+  <script>
+    // 1. 定位页面中指定的元素
+    var btn = document.getElementById('btn')
+    // 2. 为指定元素绑定事件 - 具有一个事件监听器(监听用户相应的行为)
+    btn.onclick = function () {
+      // 3. 为绑定的事件编写相应的处理函数(用户触发相应的行为时，函数做出的响应)
+      console.log("我被点击了")
+    }
+  </script>
+</body>
+
+</html>

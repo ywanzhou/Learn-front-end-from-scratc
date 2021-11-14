@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>事件流</title>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    #main {
+      height: 300px;
+      width: 300px;
+      background-color: lightsalmon;
+      padding: 50px;
+      margin: 100px;
+    }
+
+    #div {
+      height: 200px;
+      width: 200px;
+      background-color: lightskyblue;
+      padding: 50px;
+    }
+
+    #p {
+      height: 100px;
+      width: 100px;
+      background-color: lightyellow;
+    }
+  </style>
+</head>
+
+<body>
+  <main id="main">
+    <div id="div">
+      <p id="p"></p>
+    </div>
+  </main>
+  <script>
+    var main = document.getElementById('main')
+    var div = document.getElementById('div')
+    var p = document.getElementById('p')
+
+    // 绑定相同事件
+    main.addEventListener('click', function () {
+      console.log('我是main标签')
+    }, false)
+    div.addEventListener('click', function () {
+      console.log('我是div标签')
+    }, false)
+    p.addEventListener('click', function () {
+      console.log('我是p标签')
+    }, false)
+  </script>
+</body>
+
+</html>

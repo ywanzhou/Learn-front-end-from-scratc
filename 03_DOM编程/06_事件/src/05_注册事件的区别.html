@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>注册事件的区别</title>
+</head>
+
+<body>
+  <button id="btn1">按钮1</button>
+  <button id="btn2">按钮2</button>
+  <script>
+    var btn1 = document.getElementById('btn1')
+    var btn2 = document.getElementById('btn2')
+    // 使用事件监听器为按钮1新增两个事件
+    btn1.addEventListener('click', myClick1)
+
+    // 使用DOM对象的事件属性为按钮2绑定两个事件
+    btn2.onclick = myClick1
+    btn2.onclick = myClick2
+
+    // 执行函数
+    function myClick1() {
+      console.log('你终于点中了我...')
+    }
+    btn1.addEventListener('click', myClick2)
+    function myClick2() {
+      console.log('你终于又点中了我...')
+    }
+  </script>
+</body>
+
+</html>

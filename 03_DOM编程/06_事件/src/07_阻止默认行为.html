@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>阻止默认行为</title>
+</head>
+
+<body>
+  <a href="www.baidu.com">打开百度</a>
+  <div id="output"></div>
+  <script>
+    // 定位a元素
+    var a = document.getElementsByTagName('a')[0]
+    // 为a绑定点击事件
+    a.addEventListener('click', function (event) {
+      event.preventDefault()
+      var output = document.getElementById('output');
+      output.innerHTML += "对不起，<code> event.preventDefault() </code>方法使得 a 元素不可用<br>"
+
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>event如何使用</title>
+</head>
+
+<body>
+  <button id="btn">按钮</button>
+  <script>
+    var btn = document.getElementById('btn')
+    // event 作为第一个参数出现
+    btn.addEventListener('click', function (event) {
+      console.log(event)
+    })
+  </script>
+</body>
+
+</html>

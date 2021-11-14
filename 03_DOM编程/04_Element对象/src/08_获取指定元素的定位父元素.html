@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>获取指定元素的定位父元素</title>
+</head>
+
+<body>
+  <div id="parent">
+    <div id="child"></div>
+  </div>
+  <table>
+    <tr>
+      <td>
+        <div id="childTd"></div>
+      </td>
+    </tr>
+  </table>
+  <script>
+    var parent = document.getElementById('parent')
+    var child = document.getElementById('child')
+    var childTd = document.getElementById('childTd')
+    // 当祖先开启定位时,获取其最近一个开启定位的值
+    parent.setAttribute('style', 'position: absolute;')
+    console.log(child.offsetParent) // div#parent
+
+    // 当祖先都没有开启定位时，获取到 距离自己最近的 body, table, tr, td
+    parent.removeAttribute('style')
+    console.log(child.offsetParent) // body
+
+    console.log(childTd.offsetParent) // td
+  </script>
+</body>
+
+</html>

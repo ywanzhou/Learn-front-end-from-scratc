@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>事件委托</title>
+</head>
+
+<body>
+  <div id="container">
+    <button id="btn1">按钮</button>
+    <button id="btn2">按钮</button>
+    <button id="btn3">按钮</button>
+  </div>
+  <script>
+    var btn1 = document.getElementById('btn1')
+    btn1.addEventListener('click', function () {
+      console.log('我是按钮')
+    })
+    var btn2 = document.getElementById('btn2')
+    btn2.addEventListener('click', function () {
+      console.log('我是按钮')
+    })
+    var btn3 = document.getElementById('btn3')
+    btn3.addEventListener('click', function () {
+      console.log('我是按钮')
+    })
+  </script>
+</body>
+
+</html>

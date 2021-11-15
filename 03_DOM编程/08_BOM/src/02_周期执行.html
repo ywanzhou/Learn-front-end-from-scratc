@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>周期执行</title>
+</head>
+
+<body>
+  <script>
+    var count = 0
+    var id = setInterval(() => {
+      console.log('我被重复' + ++count + '执行了')
+      if (count === 10) {
+        clearInterval(id)
+        console.log('我的执行结束了')
+      }
+    }, 1000);
+  </script>
+</body>
+
+</html>

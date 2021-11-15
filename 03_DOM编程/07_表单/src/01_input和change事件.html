@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>input和change事件</title>
+  <style>
+    #input {
+      display: block;
+      outline: none;
+      -webkit-appearance: none;
+      background-color: #fff;
+      border-radius: 4px;
+      border: 1px solid #dcdfe6;
+      box-sizing: border-box;
+      color: #606266;
+      font-size: inherit;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 15px;
+      transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+      width: 240px;
+    }
+
+    #input:focus {
+      border-color: #409eff;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="#">
+    <input id="input"
+           type="text"
+           autocomplete="off">
+  </form>
+  <script>
+    var $input = document.getElementById('input')
+
+    $input.addEventListener('input', function () {
+      console.log('input事件触发：' + this.value)
+    })
+    $input.addEventListener('change', function () {
+      console.log('change事件触发：' + this.value)
+    })
+  </script>
+</body>
+
+</html>

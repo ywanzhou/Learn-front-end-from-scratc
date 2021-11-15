@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>HTMLOptionElement</title>
+</head>
+
+<body>
+  <form action="#">
+    <select id="city">
+      <option id="bj"
+              value="bj">北京</option>
+      <option value="sh">上海</option>
+      <option value="gz">广州</option>
+      <option value="sz">深圳</option>
+    </select>
+  </form>
+  <script>
+    var bj = document.getElementById('bj')
+    // 测试属性 
+    console.log(bj.index) // 0
+    console.log(bj.selected) // true
+    console.log(bj.text) // 背景
+    console.log(bj.value) // bg
+  </script>
+</body>
+
+</html>

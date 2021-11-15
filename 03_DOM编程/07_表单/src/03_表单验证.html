@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>表单验证</title>
+</head>
+
+<body>
+  <form action="#">
+    <input type="text"
+           id="username"
+           required>
+    <input type="submit">
+  </form>
+  <script>
+    var username = document.getElementById('username')
+    username.addEventListener('blur', function () {
+      var validity = username.validity
+      // 如果当前文本框为空，则使用自己定义的错误提示，否则将错误提示的提示信息设置为空
+      if (validity.valueMissing) {
+        username.setCustomValidity("请输入用户名")
+      } else {
+        username.setCustomValidity("")
+        console.log('提交成功')
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,3 +1,18 @@
+function DetectionAttributes(obj, attr) {
+  if (attr in obj) {
+    if (obj.hasOwnProperty(attr)) {
+      // 如果是自有属性属性返回1
+      return 1
+    } else {
+      // 如果是原型属性返回0
+      return 0
+    }
+  } else {
+    // 没有这个属性返回 -1
+    return -1
+  }
+}
+
 //构造函数
 function Fun() {}
 //添加原型属性和方法
@@ -24,3 +39,7 @@ console.log(fun.hasOwnProperty('SayMe')) // true
 console.log('name' in fun) // true
 console.log('print' in fun) // true
 console.log('SayMe' in fun) // true
+
+console.log(DetectionAttributes(fun, 'name')) // 1
+console.log(DetectionAttributes(fun, 'print')) // 0
+console.log(DetectionAttributes(fun, 'SayMe')) // 1

@@ -1,7 +1,7 @@
 //构造函数
 function Fun() {}
 //添加原型属性和方法
-Fun.prototype.name = '一碗周'
+Fun.prototype.name = '一碗粥'
 Fun.prototype.print = function () {
   console.log('this is function')
 }

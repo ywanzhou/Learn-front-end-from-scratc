@@ -17,17 +17,25 @@
     <button id="btn3">按钮</button>
   </div>
   <script>
-    var btn1 = document.getElementById('btn1')
-    btn1.addEventListener('click', function () {
-      console.log('我是按钮')
-    })
-    var btn2 = document.getElementById('btn2')
-    btn2.addEventListener('click', function () {
-      console.log('我是按钮')
-    })
-    var btn3 = document.getElementById('btn3')
-    btn3.addEventListener('click', function () {
-      console.log('我是按钮')
+    // var btn1 = document.getElementById('btn1')
+    // btn1.addEventListener('click', function () {
+    //   console.log('我是按钮')
+    // })
+    // var btn2 = document.getElementById('btn2')
+    // btn2.addEventListener('click', function () {
+    //   console.log('我是按钮')
+    // })
+    // var btn3 = document.getElementById('btn3')
+    // btn3.addEventListener('click', function () {
+    //   console.log('我是按钮')
+    // })
+    var container = document.getElementById('container')
+    container.addEventListener('click', function (event) {
+      var target = event.target
+      // 当前点击的为 button 时，才会触发下面逻辑代码
+      if (target.nodeName == "BUTTON") {
+        console.log('我是按钮')
+      }
     })
   </script>
 </body>

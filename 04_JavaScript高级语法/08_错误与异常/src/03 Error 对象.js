@@ -10,9 +10,8 @@ function MyError(message) {
   Error.captureStackTrace(this, MyError)
 }
 
-MyError.prototype = new Error
+MyError.prototype = new Error()
 MyError.prototype.constructor = MyError
-
 
 // * 在node.js 环境中 new Error 会直接抛出异常 不适用于 node.js环境
 // function MyError(message) {
@@ -24,7 +23,7 @@ MyError.prototype.constructor = MyError
 // MyError.prototype.constructor = MyError;
 
 try {
-  throw new MyError('错了');
+  throw new MyError('错了')
 } catch (e) {
-  console.log(e);
+  console.log(e)
 }

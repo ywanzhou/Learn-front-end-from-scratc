@@ -1,7 +1,8 @@
 function inheritPrototype(ChildClass, ParentClass) {
   var prototype = Object.create(ParentClass.prototype) // 创建对象，创建父类原型的一个副本
-  prototype.constructor = ChildClass // 增强对象，弥补因重写原型而失去的默认的 constructor 属性
-  ChildClass.prototype = prototype // 指定对象，将新创建的对象赋值给子类的原型
+  // 修改创建的父类原型副本的 constructor 并将子类的 prototype 指向这个类，形成与父类无关联的类
+  prototype.constructor = ChildClass
+  ChildClass.prototype = prototype
 }
 
 // 父类初始化实例属性和原型属性
@@ -15,6 +16,7 @@ ParentClass.prototype.sayName = function () {
 
 // 借用构造函数传递增强子类实例属性（支持传参和避免篡改）
 function ChildClass(name, age) {
+  // 拷贝父类所有自有属性
   ParentClass.call(this, name)
   this.age = age
 }

@@ -1,0 +1,13 @@
+{
+  "name": "ywanzhou-cli",
+  "version": "0.0.1",
+  "description": "scaffolding demo",
+  "main": "index.js",
+  "author": "ywanzhou",
+  "license": "MIT",
+  "bin": "cli.js",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "inquirer": "^8.2.0"
+  }
+}

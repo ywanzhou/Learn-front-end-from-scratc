@@ -34,3 +34,4 @@ get setAge
 setAge [Function: Person]
 setName [Function: Person]
 */
+export {}

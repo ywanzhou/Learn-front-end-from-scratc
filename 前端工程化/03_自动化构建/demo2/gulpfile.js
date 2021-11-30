@@ -3,6 +3,8 @@ const { src, dest, parallel } = require('gulp')
 const sass = require('gulp-sass')(require('sass'))
 // 引入less模块
 const less = require('gulp-less')
+// 引入babel
+const babel = require('gulp-babel')
 
 // 创建style任务
 const sassStyle = () => {
@@ -27,10 +29,26 @@ const lessStyle = () => {
       .pipe(dest('dist'))
   )
 }
+// 创建babel任务
+const script = () => {
+  return (
+    src('src/assets/scripts/*.js', { base: 'src' })
+      // 使用babel转换ES6语法
+      .pipe(
+        babel({
+          // 插件集合，最新特性的全部打包，不写这个转换没有效果
+          presets: ['@babel/preset-env'],
+        }),
+      )
+      // 输出到dist文件夹
+      .pipe(dest('dist'))
+  )
+}
 
 // 创建并行任务
 const style = parallel(sassStyle, lessStyle)
 
 module.exports = {
   style,
+  script,
 }

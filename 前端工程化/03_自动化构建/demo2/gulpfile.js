@@ -5,6 +5,9 @@ const sass = require('gulp-sass')(require('sass'))
 const less = require('gulp-less')
 // 引入babel
 const babel = require('gulp-babel')
+// 引入imagemin模块
+const imagemin = require('gulp-imagemin')
+
 // 引入swig模块
 const swig = require('gulp-swig')
 const data = {
@@ -95,6 +98,26 @@ const page = () => {
     .pipe(dest('dist'))
 }
 
+// 图片压缩任务
+const image = () => {
+  // 匹配images下面的所有文件
+  return src('src/assets/images/**', { base: 'src' })
+    .pipe(imagemin())
+    .pipe(dest('dist'))
+}
+
+// 图片压缩任务
+const font = () => {
+  // 匹配images下面的所有文件
+  return src('src/assets/fonts/**', { base: 'src' })
+    .pipe(imagemin())
+    .pipe(dest('dist'))
+}
+// 将public的文件进行额外输出
+const extra = () => {
+  return src('public/**', { base: 'public' }).pipe(dest('dist'))
+}
+
 // 创建并行任务
 const style = parallel(sassStyle, lessStyle)
 
@@ -102,4 +125,7 @@ module.exports = {
   style,
   script,
   page,
+  image,
+  font,
+  extra,
 }

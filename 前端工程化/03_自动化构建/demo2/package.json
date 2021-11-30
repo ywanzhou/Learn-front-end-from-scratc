@@ -23,6 +23,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-less": "^5.0.0",
     "gulp-sass": "^5.0.0",
+    "gulp-swig": "^0.9.1",
     "sass": "^1.44.0"
   }
 }

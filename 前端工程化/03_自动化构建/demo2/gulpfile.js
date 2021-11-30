@@ -5,6 +5,48 @@ const sass = require('gulp-sass')(require('sass'))
 const less = require('gulp-less')
 // 引入babel
 const babel = require('gulp-babel')
+// 引入swig模块
+const swig = require('gulp-swig')
+const data = {
+  menus: [
+    {
+      name: 'Home',
+      icon: 'aperture',
+      link: 'index.html',
+    },
+    {
+      name: 'Features',
+      link: 'features.html',
+    },
+    {
+      name: 'About',
+      link: 'about.html',
+    },
+    {
+      name: 'Contact',
+      link: '#',
+      children: [
+        {
+          name: 'Twitter',
+          link: 'https://twitter.com/w_zce',
+        },
+        {
+          name: 'About',
+          link: 'https://weibo.com/zceme',
+        },
+        {
+          name: 'divider',
+        },
+        {
+          name: 'About',
+          link: 'https://github.com/zce',
+        },
+      ],
+    },
+  ],
+  pkg: require('./package.json'),
+  date: new Date(),
+}
 
 // 创建style任务
 const sassStyle = () => {
@@ -45,10 +87,19 @@ const script = () => {
   )
 }
 
+// 创建模板引擎任务
+const page = () => {
+  // 通配符匹配src下main的所有子目录中的html
+  return src('src/**/*.html', { base: 'src' })
+    .pipe(swig({ data }))
+    .pipe(dest('dist'))
+}
+
 // 创建并行任务
 const style = parallel(sassStyle, lessStyle)
 
 module.exports = {
   style,
   script,
+  page,
 }

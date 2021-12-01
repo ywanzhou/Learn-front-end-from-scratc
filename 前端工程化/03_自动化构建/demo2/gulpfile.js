@@ -1,10 +1,8 @@
 const { src, dest, parallel } = require('gulp')
-const sass = require('gulp-sass')(require('sass'))
-const less = require('gulp-less')
-const babel = require('gulp-babel')
-const imagemin = require('gulp-imagemin')
+// 引入 gulp-load-plugins 后直接调用
+const plugins = require('gulp-load-plugins')()
+// 非 gulp 插件需要单独引入
 const del = require('del')
-const swig = require('gulp-swig')
 const data = {
   menus: [
     {
@@ -53,8 +51,8 @@ const sassStyle = () => {
     // 匹配 src/assets/styles 下所有的 sass 文件
     src('src/assets/styles/*.scss', { base: 'src' })
       // 进行sass向css转换，并且指定的样式是完全展开
-      // (如果不设置完全展开，那么默认css样式的右花括号不折行)
-      .pipe(sass({ outputStyle: 'expanded' }))
+      // 如果不设置完全展开，那么默认css样式的右花括号不折行
+      .pipe(plugins.sass(require('sass'))({ outputStyle: 'expanded' }))
       // 输出到dist文件夹
       .pipe(dest('dist'))
   )
@@ -64,7 +62,7 @@ const lessStyle = () => {
   return (
     src('src/assets/styles/*.less', { base: 'src' })
       // 进行less向css转换
-      .pipe(less())
+      .pipe(plugins.less())
       // 输出到dist文件夹
       .pipe(dest('dist'))
   )
@@ -75,7 +73,7 @@ const script = () => {
     src('src/assets/scripts/*.js', { base: 'src' })
       // 使用babel转换ES6语法
       .pipe(
-        babel({
+        plugins.babel({
           // 插件集合，最新特性的全部打包，不写这个转换没有效果
           presets: ['@babel/preset-env'],
         }),
@@ -89,7 +87,7 @@ const script = () => {
 const page = () => {
   // 通配符匹配src下main的所有子目录中的html
   return src('src/**/*.html', { base: 'src' })
-    .pipe(swig({ data }))
+    .pipe(plugins.swig({ data }))
     .pipe(dest('dist'))
 }
 
@@ -97,7 +95,7 @@ const page = () => {
 const image = () => {
   // 匹配images下面的所有文件
   return src('src/assets/images/**', { base: 'src' })
-    .pipe(imagemin())
+    .pipe(plugins.imagemin())
     .pipe(dest('dist'))
 }
 
@@ -105,7 +103,7 @@ const image = () => {
 const font = () => {
   // 匹配images下面的所有文件
   return src('src/assets/fonts/**', { base: 'src' })
-    .pipe(imagemin())
+    .pipe(plugins.imagemin())
     .pipe(dest('dist'))
 }
 // 将public的文件进行额外输出

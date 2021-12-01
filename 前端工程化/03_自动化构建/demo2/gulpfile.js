@@ -1,14 +1,9 @@
 const { src, dest, parallel } = require('gulp')
-// 引入sass模块
 const sass = require('gulp-sass')(require('sass'))
-// 引入less模块
 const less = require('gulp-less')
-// 引入babel
 const babel = require('gulp-babel')
-// 引入imagemin模块
 const imagemin = require('gulp-imagemin')
-
-// 引入swig模块
+const del = require('del')
 const swig = require('gulp-swig')
 const data = {
   menus: [
@@ -118,9 +113,9 @@ const extra = () => {
   return src('public/**', { base: 'public' }).pipe(dest('dist'))
 }
 
-// 将public的文件进行额外输出
-const extra = () => {
-  return src('public/**', { base: 'public' }).pipe(dest('dist'))
+// 删除 dist 目录
+const clean = () => {
+  return del(['dist'])
 }
 
 // 创建并行任务
@@ -133,4 +128,5 @@ module.exports = {
   image,
   font,
   extra,
+  clean,
 }

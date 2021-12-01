@@ -118,6 +118,11 @@ const extra = () => {
   return src('public/**', { base: 'public' }).pipe(dest('dist'))
 }
 
+// 将public的文件进行额外输出
+const extra = () => {
+  return src('public/**', { base: 'public' }).pipe(dest('dist'))
+}
+
 // 创建并行任务
 const style = parallel(sassStyle, lessStyle)
 

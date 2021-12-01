@@ -1,8 +1,10 @@
-const { src, dest, parallel } = require('gulp')
+const { src, dest, parallel, watch } = require('gulp')
 // 引入 gulp-load-plugins 后直接调用
 const plugins = require('gulp-load-plugins')()
 // 非 gulp 插件需要单独引入
 const del = require('del')
+// 引入热更新模块
+const browserSync = require('browser-sync')
 const data = {
   menus: [
     {
@@ -55,6 +57,7 @@ const sassStyle = () => {
       .pipe(plugins.sass(require('sass'))({ outputStyle: 'expanded' }))
       // 输出到dist文件夹
       .pipe(dest('dist'))
+      .pipe(bs.reload({ stream: true }))
   )
 }
 
@@ -65,8 +68,11 @@ const lessStyle = () => {
       .pipe(plugins.less())
       // 输出到dist文件夹
       .pipe(dest('dist'))
+      .pipe(bs.reload({ stream: true }))
   )
 }
+// 创建并行任务
+const style = parallel(sassStyle, lessStyle)
 // 创建babel任务
 const script = () => {
   return (
@@ -80,15 +86,25 @@ const script = () => {
       )
       // 输出到dist文件夹
       .pipe(dest('dist'))
+      .pipe(bs.reload({ stream: true }))
   )
 }
 
 // 创建模板引擎任务
 const page = () => {
   // 通配符匹配src下main的所有子目录中的html
-  return src('src/**/*.html', { base: 'src' })
-    .pipe(plugins.swig({ data }))
-    .pipe(dest('dist'))
+  let opt = {
+    // swig因为模板缓存的关系无法热更新，所以需要默认设置里面关闭缓存
+    defaults: { cache: false },
+    data,
+  }
+  return (
+    src('src/**/*.html', { base: 'src' })
+      .pipe(plugins.swig(opt))
+      .pipe(dest('dist'))
+      // 以流的方式往浏览器推，每次任务执行完，都自动reload一下
+      .pipe(bs.reload({ stream: true }))
+  )
 }
 
 // 图片压缩任务
@@ -116,8 +132,37 @@ const clean = () => {
   return del(['dist'])
 }
 
-// 创建并行任务
-const style = parallel(sassStyle, lessStyle)
+// 创建一个开发服务器
+const bs = browserSync.create()
+// 创建服务任务
+const serve = () => {
+  watch(['src/assets/styles/*.scss', 'src/assets/styles/*.less'], style)
+  watch('src/assets/scripts/*.js', script)
+  watch('src/**/*.html', page)
+  // 开发阶段不需要每一次修改都压缩文件，这些只是修改的时候重新加载即可
+  watch(['src/assets/images/**', 'src/assets/fonts/**', 'public/**'], bs.reload)
+
+  // 进行初始化，里面可以指定一些配置
+  bs.init({
+    // 设置开屏右上角链接提示：false去掉
+    notify: false,
+    // 端口，默认3000
+    port: 2080,
+    // 是否会自动打开浏览器:false是关闭，默认是开启
+    // open: false,
+    // 启动过后监听的文件，如果文件有修改就主动刷新
+    files: 'dist/*',
+    // 核心配置
+    server: {
+      // 网站根目录,多个的时候写成数组，如果路径找不到会依此去路径中寻找
+      baseDir: ['dist', 'src', 'public'],
+      // 优先于baseDir，会先匹配这个配置，没有就会去baseBir中获取，如果引用的css，js文件中有不在dist文件夹里面的，可以匹配这个。如果没有可以不用写
+      routes: {
+        '/node_modules': 'node_modules',
+      },
+    },
+  })
+}
 
 module.exports = {
   style,
@@ -127,4 +172,5 @@ module.exports = {
   font,
   extra,
   clean,
+  serve,
 }

@@ -1,0 +1,51 @@
+{
+  "name": "md2i",
+  "version": "0.1.0",
+  "description": "Awesome node modules.",
+  "keywords": [
+    "md2i",
+    "cli",
+    "zce"
+  ],
+  "homepage": "https://github.com/zcegg/md2i#readme",
+  "bugs": {
+    "url": "https://github.com/zcegg/md2i/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zcegg/md2i.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "icoderYY",
+    "email": "icoderYY@163.com",
+    "url": "http://zcegg.com"
+  },
+  "main": "lib/index.js",
+  "bin": "bin/cli.js",
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "scripts": {
+    "test": "standard --fix"
+  },
+  "renovate": {
+    "extends": [
+      "zce"
+    ]
+  },
+  "dependencies": {
+    "bufferutil": "^4.0.1",
+    "cac": "^6.6.1",
+    "puppeteer": "^5.3.0"
+  },
+  "devDependencies": {
+    "marked": "^1.1.1",
+    "standard": "^14.3.4",
+    "utf-8-validate": "^5.0.2"
+  },
+  "engines": {
+    "node": ">=10"
+  }
+}

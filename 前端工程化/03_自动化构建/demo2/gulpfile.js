@@ -55,8 +55,8 @@ const sassStyle = () => {
       // 进行sass向css转换，并且指定的样式是完全展开
       // 如果不设置完全展开，那么默认css样式的右花括号不折行
       .pipe(plugins.sass(require('sass'))({ outputStyle: 'expanded' }))
-      // 输出到dist文件夹
-      .pipe(dest('dist'))
+      // 输出到temp临时文件夹
+      .pipe(dest('temp'))
       .pipe(bs.reload({ stream: true }))
   )
 }
@@ -66,8 +66,8 @@ const lessStyle = () => {
     src('src/assets/styles/*.less', { base: 'src' })
       // 进行less向css转换
       .pipe(plugins.less())
-      // 输出到dist文件夹
-      .pipe(dest('dist'))
+      // 输出到temp临时文件夹
+      .pipe(dest('temp'))
       .pipe(bs.reload({ stream: true }))
   )
 }
@@ -84,8 +84,8 @@ const script = () => {
           presets: ['@babel/preset-env'],
         }),
       )
-      // 输出到dist文件夹
-      .pipe(dest('dist'))
+      // 输出到temp临时文件夹
+      .pipe(dest('temp'))
       .pipe(bs.reload({ stream: true }))
   )
 }
@@ -101,7 +101,8 @@ const page = () => {
   return (
     src('src/**/*.html', { base: 'src' })
       .pipe(plugins.swig(opt))
-      .pipe(dest('dist'))
+      // 输出到temp临时文件夹
+      .pipe(dest('temp'))
       // 以流的方式往浏览器推，每次任务执行完，都自动reload一下
       .pipe(bs.reload({ stream: true }))
   )
@@ -127,9 +128,12 @@ const extra = () => {
   return src('public/**', { base: 'public' }).pipe(dest('dist'))
 }
 
-// 删除 dist 目录
+// 删除编译后的目录
 const clean = () => {
-  return del(['dist'])
+  return del(['temp', 'dist'])
+}
+const cleanTemp = () => {
+  return del(['temp'])
 }
 
 // 创建一个开发服务器
@@ -151,11 +155,11 @@ const serve = () => {
     // 是否会自动打开浏览器:false是关闭，默认是开启
     // open: false,
     // 启动过后监听的文件，如果文件有修改就主动刷新
-    files: 'dist/*',
+    // files: 'dist/*',
     // 核心配置
     server: {
       // 网站根目录,多个的时候写成数组，如果路径找不到会依此去路径中寻找
-      baseDir: ['dist', 'src', 'public'],
+      baseDir: ['temp', 'src', 'public'],
       // 优先于baseDir，会先匹配这个配置，没有就会去baseBir中获取，如果引用的css，js文件中有不在dist文件夹里面的，可以匹配这个。如果没有可以不用写
       routes: {
         '/node_modules': 'node_modules',
@@ -167,9 +171,9 @@ const serve = () => {
 const useref = () => {
   // dist当中的所有文件注释，进行打包压缩
   return (
-    src('dist/*.html', { base: 'dist' })
+    src('temp/*.html', { base: 'temp' })
       // 文件寻找路径依此进行查找，找到之后根据写的文件注释进行打包
-      .pipe(plugins.useref({ searchPath: ['dist', '.'] }))
+      .pipe(plugins.useref({ searchPath: ['temp', '.'] }))
       // 在这里会生成html js css三种类型的文件，需要对这三种文件进行压缩操作
       .pipe(plugins.if(/\.js$/, plugins.uglify()))
       .pipe(plugins.if(/\.css$/, plugins.cleanCss()))
@@ -185,16 +189,30 @@ const useref = () => {
           }),
         ),
       )
-      .pipe(dest('release'))
+      .pipe(dest('dist'))
   )
 }
 
-const dev = parallel(style, script, page, image, font, extra)
-const build = series(clean, dev)
-const server = series(clean, dev, serve)
+// 执行编译的组合任务
+const compile = parallel(style, script, page)
+// 生产环境时候的构建任务
+/* - 先删除所有的文件夹
+   - 下面的东西都可以并行，但是其中应该先编译sass,less,es6,template到temp临时目录，然后再压缩到dist目录
+   - 图片、文字和其他的东西可以直接放到dist目录下
+   - 最后删除创建的temp临时目录
+*/
+const build = series(
+  series(clean, parallel(series(compile, useref), image, font, extra)),
+  cleanTemp,
+)
 
+// 开发时候的构建任务
+// 只需要编译之后发布到本地服务器上即可
+const develop = series(compile, serve)
+
+// 暴露开发和生产打包的任务命令
 module.exports = {
+  clean, // 删除文件可以暴露
   build,
-  server,
-  useref,
+  develop,
 }

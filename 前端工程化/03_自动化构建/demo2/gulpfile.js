@@ -5,7 +5,6 @@ const plugins = require('gulp-load-plugins')()
 const del = require('del')
 // 引入热更新模块
 const browserSync = require('browser-sync')
-
 const data = {
   menus: [
     {
@@ -164,6 +163,32 @@ const serve = () => {
     },
   })
 }
+
+const useref = () => {
+  // dist当中的所有文件注释，进行打包压缩
+  return (
+    src('dist/*.html', { base: 'dist' })
+      // 文件寻找路径依此进行查找，找到之后根据写的文件注释进行打包
+      .pipe(plugins.useref({ searchPath: ['dist', '.'] }))
+      // 在这里会生成html js css三种类型的文件，需要对这三种文件进行压缩操作
+      .pipe(plugins.if(/\.js$/, plugins.uglify()))
+      .pipe(plugins.if(/\.css$/, plugins.cleanCss()))
+      // 不加collapseWhitespace只是压缩一些空格，加上会把这行等空白字符都压缩
+      .pipe(
+        plugins.if(
+          /\.html$/,
+          plugins.htmlmin({
+            collapseWhitespace: true,
+            // 行内样式里面的css和js用这个参数可以进行压缩
+            minifyCSS: true,
+            minifyJS: true,
+          }),
+        ),
+      )
+      .pipe(dest('release'))
+  )
+}
+
 const dev = parallel(style, script, page, image, font, extra)
 const build = series(clean, dev)
 const server = series(clean, dev, serve)
@@ -171,4 +196,5 @@ const server = series(clean, dev, serve)
 module.exports = {
   build,
   server,
+  useref,
 }

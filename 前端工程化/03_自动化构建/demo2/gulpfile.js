@@ -5,6 +5,9 @@ const plugins = require('gulp-load-plugins')()
 const del = require('del')
 // 引入热更新模块
 const browserSync = require('browser-sync')
+// 创建一个开发服务器
+const bs = browserSync.create()
+// 创建模板引擎中的数据
 const data = {
   menus: [
     {
@@ -60,7 +63,6 @@ const sassStyle = () => {
       .pipe(bs.reload({ stream: true }))
   )
 }
-
 const lessStyle = () => {
   return (
     src('src/assets/styles/*.less', { base: 'src' })
@@ -71,8 +73,8 @@ const lessStyle = () => {
       .pipe(bs.reload({ stream: true }))
   )
 }
-// 创建并行任务
 const style = parallel(sassStyle, lessStyle)
+
 // 创建babel任务
 const script = () => {
   return (
@@ -116,7 +118,7 @@ const image = () => {
     .pipe(dest('dist'))
 }
 
-// 图片压缩任务
+// 字体压缩任务
 const font = () => {
   // 匹配images下面的所有文件
   return src('src/assets/fonts/**', { base: 'src' })
@@ -136,8 +138,6 @@ const cleanTemp = () => {
   return del(['temp'])
 }
 
-// 创建一个开发服务器
-const bs = browserSync.create()
 // 创建服务任务
 const serve = () => {
   watch(['src/assets/styles/*.scss', 'src/assets/styles/*.less'], style)
@@ -168,6 +168,7 @@ const serve = () => {
   })
 }
 
+// 整合css和js
 const useref = () => {
   // dist当中的所有文件注释，进行打包压缩
   return (

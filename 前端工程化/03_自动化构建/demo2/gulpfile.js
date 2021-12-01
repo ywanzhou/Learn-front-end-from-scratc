@@ -1,10 +1,11 @@
-const { src, dest, parallel, watch } = require('gulp')
+const { src, dest, series, parallel, watch } = require('gulp')
 // 引入 gulp-load-plugins 后直接调用
 const plugins = require('gulp-load-plugins')()
 // 非 gulp 插件需要单独引入
 const del = require('del')
 // 引入热更新模块
 const browserSync = require('browser-sync')
+
 const data = {
   menus: [
     {
@@ -163,14 +164,11 @@ const serve = () => {
     },
   })
 }
+const dev = parallel(style, script, page, image, font, extra)
+const build = series(clean, dev)
+const server = series(clean, dev, serve)
 
 module.exports = {
-  style,
-  script,
-  page,
-  image,
-  font,
-  extra,
-  clean,
-  serve,
+  build,
+  server,
 }

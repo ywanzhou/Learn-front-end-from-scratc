@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 const { program } = require('commander')
 const { version } = require('../package.json')
+const creatProject = require('..')
 
 program
   // 定义命令
@@ -9,10 +10,10 @@ program
   .alias('crt')
   // 定义参数
   .argument('<projectName>')
-  // 定义命令处理方法
+  // 定义命令处理方法 该方法接受一个回调函数，回调函数的参数名称就是我们前面定义的参数
   .action(projectName => {
-    // 该方法接受一个回调函数，回调函数的参数名称就是我们前面定义的参数
-    console.log(projectName)
+    // 处理函数，定义在外部
+    creatProject(projectName)
   })
 
 // .version() 方法用于设置版本号，当在命令行中执行 --version 或者 -V 时，显示的版本

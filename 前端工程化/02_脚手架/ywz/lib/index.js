@@ -1,6 +1,27 @@
 const inquirer = require('inquirer')
 const ora = require('ora')
 
+/**
+ * @description: 为一个Promise函数添加一个loading效果
+ * @param {Function} callback 返回Promise且需要被loading修饰的函数
+ * @returns {Function} 被修饰后的方法
+ */
+const loading = callback => {
+  return async (...args) => {
+    // 开始
+    let spinner = ora('start...').start()
+    try {
+      // 没有异常即成功
+      let res = await callback(...args)
+      spinner.succeed('success')
+      return res
+    } catch (error) {
+      spinner.fail('fail')
+      return error
+    }
+  }
+}
+
 module.exports = async name => {
   let { projectName } = await inquirer.prompt({
     // 问题的类型，input 表示输入
@@ -12,22 +33,11 @@ module.exports = async name => {
     // 默认值
     default: name,
   })
-  const spinner = ora('开始加载...').start()
-  setTimeout(() => {
-    console.log('\n项目名称是：' + projectName)
-    spinner.succeed('加载完毕')
-  }, 3000)
-  // let { license } = await inquirer.prompt({
-  //   // 问题的类型，list 表示可以选择
-  //   type: 'list',
-  //   // 答案的 key
-  //   name: 'license',
-  //   // 问题是什么
-  //   message: 'Choose a license',
-  //   // 支持选择的选项
-  //   choices: ['LGPL', 'Mozilla', 'GPL', 'BSD', 'MIT', 'Apache'],
-  //   // 默认值
-  //   default: 'MIT',
-  // })
-  // console.log(projectName, license)
+  let res = await loading(() => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        reject(200)
+      }, 3000)
+    })
+  })()
 }

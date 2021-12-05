@@ -1,6 +1,10 @@
 const { default: axios } = require('axios')
+const { existsSync } = require('fs')
 const inquirer = require('inquirer')
 const ora = require('ora')
+const path = require('path')
+const { promisify } = require('util')
+// const download = promisify(require('download-git-repo'))
 
 /**
  * @description: 为一个Promise函数添加一个loading效果
@@ -47,6 +51,22 @@ const fetchTagList = async (username, repoName) => {
   return data.map(item => item.name)
 }
 
+const downloadGithub = async (username, repoName) => {
+  const cacheDir = `${
+    process.env[process.platform == 'win32' ? 'USERPROFILE' : 'HOME']
+  }/.tmp`
+  // 拼接一个下载后的目录
+  let dest = path.resolve(cacheDir, repoName)
+  // fs 模块提供的 existsSync 方法用于判断目录是否存在，如果存在，说明无需下载
+  let flag = existsSync(dest)
+  if (!flag) {
+    // 需要下载
+    let res = await loading(download)(`${username}/${repoName}`, cacheDir)
+    console.log(res)
+  }
+  return dest
+}
+
 module.exports = async name => {
   let { projectName } = await inquirer.prompt({
     // 问题的类型，input 表示输入
@@ -81,5 +101,9 @@ module.exports = async name => {
     })
     repoName += `#${tagVersion}`
   }
-  console.log(projectName, repoName)
+  // let dest = await downloadGithub('zcegg/create-nm', '.')
+  // download('zcegg/create-nm', '.', e => {
+  //   console.log(e)
+  // })
+  console.log(dest)
 }

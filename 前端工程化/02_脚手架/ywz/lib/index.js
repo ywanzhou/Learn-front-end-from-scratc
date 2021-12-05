@@ -5,6 +5,7 @@ const ora = require('ora')
 const path = require('path')
 const { promisify } = require('util')
 // const download = promisify(require('download-git-repo'))
+const download = require('download-git-repo')
 
 /**
  * @description: 为一个Promise函数添加一个loading效果
@@ -101,9 +102,9 @@ module.exports = async name => {
     })
     repoName += `#${tagVersion}`
   }
-  // let dest = await downloadGithub('zcegg/create-nm', '.')
-  // download('zcegg/create-nm', '.', e => {
-  //   console.log(e)
-  // })
-  console.log(dest)
+  // let dest = await download('zcegg/create-nm', '.tmp')
+  download('zcegg/create-nm', '.', e => {
+    console.log(e, 11111111111111)
+  })
+  // console.log(dest)
 }

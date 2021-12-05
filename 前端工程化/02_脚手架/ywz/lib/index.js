@@ -52,7 +52,12 @@ const fetchTagList = async (username, repoName) => {
   )
   return data.map(item => item.name)
 }
-
+/**
+ * @description: 下载具体仓库中的内容
+ * @param {string} username 仓库拥有者的名称
+ * @param {string} repoName 仓库名称 + 分支名称， # 号拼接
+ * @returns {string} 下载的临时目录
+ */
 const downloadGithub = async (username, repoName) => {
   const cacheDir = `${
     process.env[process.platform == 'win32' ? 'USERPROFILE' : 'HOME']
@@ -92,7 +97,7 @@ module.exports = async name => {
   // 获取所有 branches
   let branches = await loading(fetchTagList)('pacpc', repoName)
 
-  // 如果有多个版本，用户选择多个版本，没有多个版本可以直接下载
+  // 如果有多个分支，用户选择多个分支，没有多个分支可以直接下载
   if (branches.length > 1) {
     // 存在
     let { checkout } = await inquirer.prompt({
@@ -105,11 +110,8 @@ module.exports = async name => {
   } else {
     repoName += `#${branches[0]}`
   }
-
+  // 下载模板到临时目录
   let dest = await downloadGithub('pacpc', repoName)
-  // download('zcegg/create-nm', '.tmp', e => {
-  // })
-  // let test = promisify(download)
-  // let res = await test('zcegg/create-nm', '.tmp')
+  // 下载目录
   console.log(dest)
 }

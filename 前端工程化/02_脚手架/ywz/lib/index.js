@@ -1,4 +1,5 @@
 const inquirer = require('inquirer')
+
 module.exports = async name => {
   let { projectName } = await inquirer.prompt({
     // 问题的类型，input 表示输入

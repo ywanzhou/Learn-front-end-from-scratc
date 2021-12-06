@@ -167,7 +167,7 @@ module.exports = async name => {
           }
         })
     })
-    console.log('\n\nsuccess~')
+    console.log('\nsuccess~')
   } else {
     // 如果不需要模板进行处理的直接拷贝至项目目录
     ncp(dest, projectName)

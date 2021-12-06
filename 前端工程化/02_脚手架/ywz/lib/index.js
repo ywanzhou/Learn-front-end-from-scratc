@@ -5,6 +5,9 @@ const ora = require('ora')
 const path = require('path')
 const { promisify } = require('util')
 const download = promisify(require('download-git-repo'))
+const { render } = require('consolidate').handlebars
+const Metalsmith = require('metalsmith')
+const ncp = require('ncp')
 // const download = require('download-git-repo')
 
 /**
@@ -114,4 +117,60 @@ module.exports = async name => {
   let dest = await downloadGithub('pacpc', repoName)
   // 下载目录
   console.log(dest)
+  // 判断下载的模板中是否包含 question.js 如果包含则进行模板的替换，否则直接复制到目标仓库
+  if (existsSync(path.join(dest, 'question.js'))) {
+    await new Promise((resolve, reject) => {
+      Metalsmith(__dirname)
+        .source(dest)
+        .destination(path.resolve(projectName))
+        .use(async (files, metal, done) => {
+          // files 就是需要渲染的模板目录下的所有类型的文件
+          // 加载 question 文件
+          const quesList = require(path.join(dest, 'question.js'))
+          // 依据问题数据，定义交互问题
+          let answers = await inquirer.prompt(quesList)
+
+          // 当前 answers 保存的是用户传递的数据，我们通过 metal.metadata() 将其保存给下一个 use 中使用
+          let meta = metal.metadata()
+          Object.assign(meta, answers, { projectName })
+
+          // 删除 question.js 文件，避免拷贝的用户模板
+          // 可以通过 delete 关键字删除的原因是因为 files 中存在的全部都是 buffer，我们直接删除这个 key，对应的 value 也就被删除了
+          delete files['question.js']
+          done()
+        })
+        .use((files, metal, done) => {
+          // 获取上一个 use 中存储的数据
+          let data = metal.metadata()
+
+          // 将 files 中的所有自有属性制作为一个数据
+          let arr = Reflect.ownKeys(files)
+          // 通过遍历数组，将所有的 buffer 转换为字符串，然后通过模板引擎进行替换，最后转换为 buffer 存储即可
+          arr.forEach(async file => {
+            // 只对 js 或者 json 文件进行替换
+            if (file.includes('js') || file.includes('json')) {
+              let content = files[file].contents.toString()
+              // 如果包含模板引擎语法就进行替换
+              if (content.includes('{{')) {
+                content = await render(content, data)
+                files[file].contents = Buffer.from(content)
+              }
+            }
+          })
+          done()
+        })
+        // 如果有异常 Promise 调用 reject
+        .build(err => {
+          if (err) {
+            reject(err)
+          } else {
+            resolve()
+          }
+        })
+    })
+    console.log('\n\nsuccess~')
+  } else {
+    // 如果不需要模板进行处理的直接拷贝至项目目录
+    ncp(dest, projectName)
+  }
 }

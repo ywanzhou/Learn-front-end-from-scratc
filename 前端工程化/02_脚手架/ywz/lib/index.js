@@ -115,7 +115,6 @@ module.exports = async name => {
   }
   // 下载模板到临时目录
   let dest = await downloadGithub('pacpc', repoName)
-  // 下载目录
   // 判断下载的模板中是否包含 question.js 如果包含则进行模板的替换，否则直接复制到目标仓库
   if (existsSync(path.join(dest, 'question.js'))) {
     await new Promise((resolve, reject) => {

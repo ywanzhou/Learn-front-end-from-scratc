@@ -5,10 +5,17 @@
 //   },
 // }
 
+// ;(function () {
+//   let name = '一碗周'
+//   function handle() {
+//     console.log(name)
+//   }
+//   window.moduleA = { handle }
+// })()
 ;(function () {
-  let name = '一碗周'
-  function handle() {
+  function printName(name) {
     console.log(name)
   }
-  window.moduleA = { handle }
+  // 暴露一个打印的方法
+  window.moduleA = { printName }
 })()

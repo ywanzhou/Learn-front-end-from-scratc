@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>requirejs</title>
+</head>
+
+<body>
+  <!-- 借助CDN引入requirejs -->
+  <script
+          src="https://cdn.bootcdn.net/ajax/libs/require.js/2.3.6/require.min.js"></script>
+  <script>
+    // 通过 requirejs 提供了 requirejs() 方法使用定义的模块，该方法接受两个参数
+    // - 第一个参数接收一个数组，数组中的每一项是一个路径，表示模块地址
+    // - 第二个参数接收一个回调函数，回调函数中的参数表示具体的模块
+    requirejs(['./component/module_d.js'], (person) => {
+      console.log(person.name) // requirejs
+    })
+
+  </script>
+</body>
+
+</html>

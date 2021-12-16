@@ -5,4 +5,4 @@ export default function sayMe() {
   console.log('一碗周')
 }
 // 批量导出成功
-export { name, sayMe }
+// export { name, sayMe }

@@ -3,7 +3,7 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-
+const myWebpackPlugin = require('./myWebpackPlugin')
 module.exports = {
   mode: 'none',
   entry: './src/main.js',
@@ -54,5 +54,6 @@ module.exports = {
       // 直接拷贝 public 下所有内容至输出目录
       'public',
     ]),
+    new myWebpackPlugin(),
   ],
 }

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Webpack</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>
+      <!-- 使用 Lodash 模板语法可以直接使用 webpack 中的数据 -->
+      <!-- htmlWebpackPlugin.options.title 是 htmlWebpackPlugin 插件提供的 -->
+      <%= htmlWebpackPlugin.options.title
+          %>
+    </h1>
+  </div>
+</body>
+
+</html>

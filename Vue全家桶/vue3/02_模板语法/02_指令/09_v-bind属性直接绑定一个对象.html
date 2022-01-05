@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <template id="my-app">
+      <div v-bind="info">{{info.name}}</div>
+      <!-- 结果： <div name="一碗周" age="18" height="1.88">一碗周</div> -->
+      <div :[info.name]="info.age">{{info.name}}</div>
+      <!-- 结果： <div 一碗周="18">一碗周</div> -->
+    </template>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            info: {
+              name: '一碗周',
+              age: 18,
+              height: 1.88,
+            },
+          }
+        },
+      }
+
+      Vue.createApp(App).mount('#app')
+    </script>
+  </body>
+</html>

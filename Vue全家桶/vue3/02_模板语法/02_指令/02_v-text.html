@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>v-text指令</title>
+
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .wrap {
+        margin-top: 100px;
+        display: flex;
+        justify-content: center;
+      }
+      .wrap span {
+        width: 80px;
+        text-align: center;
+        line-height: 38px;
+        border-top: 1px solid #007bff;
+        border-bottom: 1px solid #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="myApp">
+      <div class="wrap">
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          @click="decrement"
+        >
+          - 1
+        </button>
+        <span v-text="counter"></span>
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          @click="increment"
+        >
+          + 1
+        </button>
+      </div>
+    </template>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+      Vue.createApp({
+        template: `#myApp`,
+        data() {
+          return {
+            counter: 0,
+          }
+        },
+        methods: {
+          increment() {
+            this.counter++
+          },
+          decrement() {
+            this.counter--
+          },
+        },
+      }).mount('#app')
+    </script>
+  </body>
+</html>

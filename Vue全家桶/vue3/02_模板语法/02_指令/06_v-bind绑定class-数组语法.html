@@ -10,9 +10,11 @@
     <div id="app"></div>
 
     <template id="my-app">
-      <div :class="['abc', title]">哈哈哈哈</div>
-      <div :class="['abc', title, isActive ? 'active': '']">哈哈哈哈</div>
-      <div :class="['abc', title, {active: isActive}]">哈哈哈哈</div>
+      <div :class="['cls', title]">数组语法</div>
+      <div :class="['cls', title, isActive ? 'active': '']">
+        数组配合三元表达式
+      </div>
+      <div :class="['cls', title, {active: isActive}]">数组与对象语法结合</div>
     </template>
 
     <script src="https://unpkg.com/vue@next"></script>
@@ -21,8 +23,7 @@
         template: '#my-app',
         data() {
           return {
-            message: 'Hello World',
-            title: 'cba',
+            title: 'cls2',
             isActive: true,
           }
         },

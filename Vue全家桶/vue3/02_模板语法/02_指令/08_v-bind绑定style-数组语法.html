@@ -10,10 +10,7 @@
     <div id="app"></div>
 
     <template id="my-app">
-      <div :style="[style1Obj, style2Obj]">哈哈哈</div>
-      <img :src="" alt="" />
-      <a :href=""></a>
-      <div :class></div>
+      <div :style="[styleObjOne, styleObjTwo]">哈哈哈</div>
     </template>
 
     <script src="https://unpkg.com/vue@next"></script>
@@ -22,18 +19,16 @@
         template: '#my-app',
         data() {
           return {
-            message: 'Hello World',
-            style1Obj: {
+            styleObjOne: {
               color: 'red',
               fontSize: '30px',
             },
-            style2Obj: {
+            styleObjTwo: {
               textDecoration: 'underline',
             },
           }
         },
       }
-
       Vue.createApp(App).mount('#app')
     </script>
   </body>

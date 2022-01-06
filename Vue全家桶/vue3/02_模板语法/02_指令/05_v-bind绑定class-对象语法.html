@@ -15,24 +15,25 @@
     <div id="app"></div>
 
     <template id="my-app">
-      <div :class="className">哈哈哈哈</div>
+      <div :class="backgroundColor">普通用法</div>
+
       <!-- 对象语法: {'active': boolean} -->
-      <div :class="{'active': isActive}">呵呵呵呵</div>
+      <div :class="{'active': isActive}">true显示false不显示</div>
       <button @click="toggle">切换</button>
 
-      <!-- 也可以有多个键值对 -->
-      <div :class="{active: isActive, title: true}">呵呵呵呵</div>
+      <div :class="{active: isActive, title: true}">多个键值对组合</div>
 
-      <!-- 默认的class和动态的class结合 -->
-      <div class="abc cba" :class="{active: isActive, title: true}">
-        呵呵呵呵
+      <div class="cls1 cls2" :class="{active: isActive, title: true}">
+        默认的class和动态的class结合
       </div>
 
       <!-- 将对象放到一个单独的属性中 -->
-      <div class="abc cba" :class="classObj">呵呵呵呵</div>
+      <div class="cls1 cls2" :class="classObj">将对象放到一个单独的属性中</div>
 
       <!-- 将返回的对象放到一个methods(computed)方法中 -->
-      <div class="abc cba" :class="getClassObj()">呵呵呵呵</div>
+      <div class="cls1 cls2" :class="getClassObj()">
+        将返回的对象放到一个方法中
+      </div>
     </template>
 
     <script src="https://unpkg.com/vue@next"></script>
@@ -41,7 +42,7 @@
         template: '#my-app',
         data() {
           return {
-            className: 'why',
+            backgroundColor: 'red',
             isActive: true,
             title: 'abc',
             classObj: {

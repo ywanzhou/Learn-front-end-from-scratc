@@ -6,14 +6,17 @@
 <script setup>
 import { defineAsyncComponent } from 'vue'
 import LogoImg from './components/LogoImg.vue'
-// import HelloWorld from './components/HelloWorld.vue'
-const time = t => {
+
+// 定义一个耗时执行的函数，t 表示延迟的时间， callback 表示需要执行的函数，可选
+const time = (t, callback = () => {}) => {
   return new Promise(resolve => {
     setTimeout(() => {
+      callback()
       resolve()
     }, t)
   })
 }
+// 定义异步组件，这里这样写是为了查看效果
 const HelloWorld = defineAsyncComponent(() => {
   return new Promise((resolve, reject) => {
     ;(async function () {
@@ -27,6 +30,11 @@ const HelloWorld = defineAsyncComponent(() => {
     })()
   })
 })
+
+// 简单用法
+// const HelloWorld = defineAsyncComponent(() =>
+//   import('./components/HelloWorld.vue'),
+// )
 </script>
 
 <style>

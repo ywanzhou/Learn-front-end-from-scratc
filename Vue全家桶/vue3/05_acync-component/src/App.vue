@@ -41,6 +41,8 @@ const HelloWorld = defineAsyncComponent({
   // 如果提供了 timeout ，并且加载组件的时间超过了设定值，将显示错误组件
   // 默认值：Infinity（即永不超时，单位 ms）
   timeout: 1000,
+  // 异步组件可以退出 <Suspense> 控制，并始终控制自己的加载状态。 docs: https://v3.cn.vuejs.org/guide/component-dynamic-async.html#%E4%B8%8E-suspense-%E4%B8%80%E8%B5%B7%E4%BD%BF%E7%94%A8
+  suspensible: false,
   /**
    *
    * @param {*} error 错误信息对象

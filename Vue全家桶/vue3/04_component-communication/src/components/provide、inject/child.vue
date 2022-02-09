@@ -5,6 +5,7 @@
 </template>
 <script setup>
 import { inject } from 'vue'
+// 接受父组件提供的数据
 const list = inject('list')
 </script>
 <style>

@@ -21,6 +21,7 @@ import { ref, provide } from 'vue'
 import ChildComponents from './child.vue'
 const list = ref(['JavaScript', 'HTML', 'CSS'])
 const value = ref('')
+// 向子组件提供数据
 provide('list', list.value)
 // add 触发后的事件处理函数
 const handleAdd = () => {

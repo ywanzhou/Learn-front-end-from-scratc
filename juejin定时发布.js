@@ -40,8 +40,8 @@ const t = new timer()
 const btn = document.getElementsByClassName(
   'ui-btn btn primary medium default',
 )[0]
-// const time = 1644422400000
-const time = 1644407252858
+// 22年2月10日0点的时间戳
+const time = 1644422400000
 t.addTimer(
   'release',
   () => {

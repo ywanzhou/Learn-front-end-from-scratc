@@ -4,8 +4,29 @@
 </template>
 
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { defineAsyncComponent } from 'vue'
 import LogoImg from './components/LogoImg.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+const time = t => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve()
+    }, t)
+  })
+}
+const HelloWorld = defineAsyncComponent(() => {
+  return new Promise((resolve, reject) => {
+    ;(async function () {
+      try {
+        await time(2000)
+        const res = await import('./components/HelloWorld.vue')
+        resolve(res)
+      } catch (error) {
+        reject(error)
+      }
+    })()
+  })
+})
 </script>
 
 <style>

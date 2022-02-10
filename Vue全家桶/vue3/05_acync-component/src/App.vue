@@ -18,17 +18,22 @@ const time = (t, callback = () => {}) => {
     }, t)
   })
 }
-
+let count = 0
 // 简单用法
 const HelloWorld = defineAsyncComponent({
   // 工厂函数
   loader: () => {
     return new Promise((resolve, reject) => {
       ;(async function () {
-        await time(2000)
+        await time(300)
         const res = await import('./components/HelloWorld.vue')
-        // 手动设置加载失败
-        reject(res)
+        if (++count < 3) {
+          // 手动设置加载失败
+          reject(res)
+        } else {
+          // 大于3次成功
+          resolve(res)
+        }
       })()
     })
   },
@@ -41,7 +46,7 @@ const HelloWorld = defineAsyncComponent({
   // 如果提供了 timeout ，并且加载组件的时间超过了设定值，将显示错误组件
   // 默认值：Infinity（即永不超时，单位 ms）
   timeout: 1000,
-  // 异步组件可以退出 <Suspense> 控制，并始终控制自己的加载状态。 docs: https://v3.cn.vuejs.org/guide/component-dynamic-async.html#%E4%B8%8E-suspense-%E4%B8%80%E8%B5%B7%E4%BD%BF%E7%94%A8
+  // 异步组件可以退出 <Suspense> 控制，并始终控制自己的加载状态。 docs:
   suspensible: false,
   /**
    *
@@ -53,8 +58,9 @@ const HelloWorld = defineAsyncComponent({
   onError(error, retry, fail, attempts) {
     // 注意，retry/fail 就像 promise 的 resolve/reject 一样：
     // 必须调用其中一个才能继续错误处理。
-    if (attempts <= 3) {
+    if (attempts < 3) {
       // 请求发生错误时重试，最多可尝试 3 次
+      console.log(attempts)
       retry()
     } else {
       fail()

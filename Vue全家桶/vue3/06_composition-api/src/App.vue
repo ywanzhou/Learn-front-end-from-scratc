@@ -2,21 +2,27 @@
   <h3>信息展示组件</h3>
   <div style="margin: 24px 0">
     <span>姓名：</span>
-    <span>{{ data.name }}</span>
+    <!-- 在模板中，Vue 会自动帮助我们为 ref 进行解包，所以不需要使用 ref.value 的形式 -->
+    <span>{{ name }}</span>
     <br />
     <span>年龄：</span>
-    <span>{{ data.age }}</span>
+    <span>{{ age }}</span>
   </div>
-  <button @click="data.name = '一碗周'">修改姓名</button>
+  <button @click="handleEditName">修改姓名</button>
   <br />
-  <button @click="data.age = '20'">修改年龄</button>
+  <button @click="handleEditAge">修改年龄</button>
 </template>
 <script setup>
-// 使用 <script setup> 所有的 API 需要单独引入，除 Vue3.2 自动引入的几个API外。
-import { reactive } from 'vue'
+// 导入 ref
+import { ref } from 'vue'
 // 创建响应式对象
-const data = reactive({
-  name: '一碗粥',
-  age: '18',
-})
+const name = ref('一碗粥')
+const age = ref('18')
+const handleEditName = () => {
+  // 通过 ref 创造的响应式对象，我们需要通过 ref.value 的方式访问
+  name.value = '一碗周'
+}
+const handleEditAge = () => {
+  age.value = '20'
+}
 </script>

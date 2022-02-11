@@ -13,10 +13,11 @@
   <button @click="handleEditAge">修改年龄</button>
 </template>
 <script setup>
-import { toRefs, reactive } from 'vue'
+import { toRef, reactive } from 'vue'
 const user = reactive({ name: '一碗粥', age: '18' })
 // user 下的属性通过 toRefs 与解构后的数据建立了链接，任何一个修改都会引起另一个的变化
-const { name, age } = toRefs(user)
+const name = toRef(user, 'name')
+const age = toRef(user, 'age')
 const handleEditName = () => {
   name.value = '一碗周'
 }

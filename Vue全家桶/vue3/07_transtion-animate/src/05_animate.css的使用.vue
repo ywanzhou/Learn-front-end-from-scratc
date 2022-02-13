@@ -21,10 +21,10 @@ const show = ref(true)
   margin-top: 60px;
 }
 .v-enter-active {
-  animation: flip 0.5s;
+  animation: fadeInDown 0.5s;
 }
 .v-leave-active {
   /* reverse -> 动画序列反转 */
-  animation: flip 0.5s reverse;
+  animation: fadeOutDown 0.5s reverse;
 }
 </style>

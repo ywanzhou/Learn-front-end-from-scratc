@@ -25,9 +25,9 @@ CSS3新增的弹性盒子模型是一个完整的模块，涉及的样式属性�
 CSS3中想要设置为弹性盒子模型的话，需要通过`display`样式属性设置值为`flex`或`inline-flex`即可。
 
 ```css
-display: fiex; /* 值 flex 使弹性容器成为块级元素。 */
+display: flex; /* 值 flex 使弹性容器成为块级元素。 */
 /* 或者 */
-display: inline-fiex; /* 值 inline-flex 使弹性容器成为单个不可分的行内级元素。 */
+display: inline-flex; /* 值 inline-flex 使弹性容器成为单个不可分的行内级元素。 */
 ```
 
 

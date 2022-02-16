@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>align-items 属性</title>
-        <link rel="stylesheet" href="./init.css" />
-        <style>
-            body {
-                display: flex;
-            }
-            .container {
-                display: flex;
-                width: 600px;
-                height: 500px;
-            }
-            /* 
-              align-items属性
-              * 作用：设置伸缩项目所在行沿着侧轴线的对齐方式
-                * 值
-                  - center: 伸缩项目向侧轴的中间位置对齐。
-                  - flex-start: 伸缩项目向侧轴的起点位置对齐。
-                  - flex-end: 伸缩项目向侧轴的终点位置对齐。
-                  - baseline: 伸缩项目根据伸缩项目的基线对齐。
-                  - stretch: 默认值，伸缩项目拉伸填充整个伸缩容器。
-            */
-            .center {
-                align-items: center; /* 居中 */
-            }
-            .start {
-                align-items: flex-start; /* 顶对齐 */
-            }
-            .end {
-                align-items: flex-end; /* 底对齐 */
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container center">
-            <div class="item1 item">1</div>
-            <div class="item2 item">2</div>
-            <div class="item3 item">3</div>
-        </div>
-        <div class="container start">
-            <div class="item1 item">1</div>
-            <div class="item2 item">2</div>
-            <div class="item3 item">3</div>
-        </div>
-        <div class="container end">
-            <div class="item1 item">1</div>
-            <div class="item2 item">2</div>
-            <div class="item3 item">3</div>
-        </div>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>align-items 属性</title>
+    <link rel="stylesheet" href="./init.css" />
+    <style>
+      body {
+        display: flex;
+      }
+      .container {
+        display: flex;
+        width: 600px;
+        height: 500px;
+      }
+      /* 
+        align-items属性
+        * 作用：设置伸缩项目所在行沿着侧轴线的对齐方式
+          * 值
+            - center: 伸缩项目向侧轴的中间位置对齐。
+            - flex-start: 伸缩项目向侧轴的起点位置对齐。
+            - flex-end: 伸缩项目向侧轴的终点位置对齐。
+            - baseline: 伸缩项目根据伸缩项目的基线对齐。
+            - stretch: 默认值，伸缩项目拉伸填充整个伸缩容器。
+      */
+      .center {
+        align-items: center; /* 居中 */
+      }
+      .start {
+        align-items: flex-start; /* 顶对齐 */
+      }
+      .end {
+        align-items: flex-end; /* 底对齐 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container center">
+      <div class="item1 item">1</div>
+      <div class="item2 item">2</div>
+      <div class="item3 item">3</div>
+    </div>
+    <div class="container start">
+      <div class="item1 item">1</div>
+      <div class="item2 item">2</div>
+      <div class="item3 item">3</div>
+    </div>
+    <div class="container end">
+      <div class="item1 item">1</div>
+      <div class="item2 item">2</div>
+      <div class="item3 item">3</div>
+    </div>
+  </body>
 </html>

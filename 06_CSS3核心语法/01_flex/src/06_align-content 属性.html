@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>align-content 属性</title>
+        <link rel="stylesheet" href="./init.css" />
+        <style>
+            body {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .container {
+                display: flex;
+                width: 600px;
+                height: 500px;
+                flex-wrap: wrap;
+            }
+            .item {
+                width: 200px;
+            }
+            /* 
+            align-content属性
+            * 作用：设置设置伸缩行的对齐方式
+              * 值
+                - center: 各行向伸缩容器的中间位置对齐(居中)。
+                - flex-start: 各行向伸缩容器的起点位置对齐(顶对齐)。
+                - flex-end: 各行向伸缩容器的终点位置对齐(底对齐)。
+                - space-between: 各行会平均分布在一行中(两端对齐，项目之间的间隔都相等)。
+                - space-around: 各行会平均分布在一行中， 两端保留-半的空间(两端对齐，项目两侧的间隔相等)。
+                - stretch: 默认值，各行将会伸展以占用额外的空间。
+            * 注意：该属性对单行无效，即：带有 flex-wrap: nowrap
+            */
+            .center {
+                align-content: center; /* 居中 */
+            }
+            .start {
+                align-content: flex-start; /* 顶对齐 */
+            }
+            .end {
+                align-content: flex-end; /* 底对齐 */
+            }
+            .between {
+                align-content: space-between; /* 两端对齐，项目之间的间隔都相等 */
+            }
+            .around {
+                align-content: space-around; /* 两端对齐，项目两侧的间隔相等 */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container center">
+            <div class="item1 item">1</div>
+            <div class="item2 item">2</div>
+            <div class="item3 item">3</div>
+            <div class="item4 item">4</div>
+        </div>
+        <div class="container start">
+            <div class="item1 item">1</div>
+            <div class="item2 item">2</div>
+            <div class="item3 item">3</div>
+            <div class="item4 item">4</div>
+        </div>
+        <div class="container end">
+            <div class="item1 item">1</div>
+            <div class="item2 item">2</div>
+            <div class="item3 item">3</div>
+            <div class="item4 item">4</div>
+        </div>
+        <div class="container between">
+            <div class="item1 item">1</div>
+            <div class="item2 item">2</div>
+            <div class="item3 item">3</div>
+            <div class="item4 item">4</div>
+        </div>
+        <div class="container around">
+            <div class="item1 item">1</div>
+            <div class="item2 item">2</div>
+            <div class="item3 item">3</div>
+            <div class="item4 item">4</div>
+        </div>
+    </body>
+</html>

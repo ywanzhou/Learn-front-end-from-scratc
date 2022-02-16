@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 20px;
+}
+.container {
+  background-color: #f5f5f5;
+  margin: 30px auto;
+}
+.item {
+  height: 200px;
+  width: 200px;
+  line-height: 200px;
+  text-align: center;
+  font-size: 80px;
+}
+.item1 {
+  background-color: #ff4d4f;
+}
+.item2 {
+  background-color: #ff7a45;
+}
+.item3 {
+  background-color: #ffa940;
+}
+.item4 {
+  background-color: #36cfc9;
+}
+.item5 {
+  background-color: #f759ab;
+}
+.item6 {
+  background-color: #bae637;
+}
+.item7 {
+  background-color: #40a9ff;
+}
+.item8 {
+  background-color: #ffec3d;
+}

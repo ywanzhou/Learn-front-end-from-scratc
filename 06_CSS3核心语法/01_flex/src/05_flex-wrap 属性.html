@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>flex-wrap 属性</title>
+        <link rel="stylesheet" href="./init.css" />
+        <style>
+            body {
+                display: flex;
+            }
+            .container {
+                display: flex;
+                width: 600px;
+                height: 400px;
+            }
+            .item {
+                width: 200px;
+            }
+            /* 
+              flex-wrap属性
+              * 作用：设置伸缩容器的子元素是单行显示还是多行显示。
+              * 值
+               - nowrap: 设置伸缩项目单行显示。这种方式可能导致溢出伸缩容器
+               - wrap: 设置伸缩项目多行显示，第一行在上方。
+               - wrap-reverse: 与 `wrap` 相反，第一行在下方。
+            */
+            .nowrap {
+                flex-wrap: nowrap;
+            }
+            .wrap {
+                flex-wrap: wrap;
+            }
+            .wrap-reverse {
+                flex-wrap: wrap-reverse;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container nowrap">
+            <div class="item1 item">1</div>
+            <div class="item2 item">2</div>
+            <div class="item3 item">3</div>
+            <div class="item4 item">4</div>
+        </div>
+        <div class="container wrap">
+            <div class="item1 item">1</div>
+            <div class="item2 item">2</div>
+            <div class="item3 item">3</div>
+            <div class="item4 item">4</div>
+        </div>
+        <div class="container wrap-reverse">
+            <div class="item1 item">1</div>
+            <div class="item2 item">2</div>
+            <div class="item3 item">3</div>
+            <div class="item4 item">4</div>
+        </div>
+    </body>
+</html>

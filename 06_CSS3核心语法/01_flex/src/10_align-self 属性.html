@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>align-self 属性</title>
+        <link rel="stylesheet" href="./init.css" />
+        <style>
+            body {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .container {
+                display: flex;
+                width: 600px;
+                height: 400px;
+                align-items: center;
+            }
+            .item {
+                width: 200px;
+            }
+            /* 
+              align-self 属性 设置单个元素的对齐方式
+            */
+            .start {
+                align-self: flex-start;
+            }
+            .center {
+                align-self: center;
+            }
+            .end {
+                align-self: flex-end;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="item1 item start">1</div>
+            <div class="item2 item center">2</div>
+            <div class="item3 item end">3</div>
+        </div>
+    </body>
+</html>

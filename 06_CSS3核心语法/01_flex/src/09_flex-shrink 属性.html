@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>flex-shrink 属性</title>
-        <link rel="stylesheet" href="./init.css" />
-        <style>
-            body {
-                display: flex;
-                flex-wrap: wrap;
-            }
-            .container {
-                display: flex;
-                width: 500px;
-                height: 300px;
-                align-items: center;
-            }
-            .item {
-                width: 200px;
-            }
-            /* 
-              flex-shrink 属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
-            */
-            .item2 {
-                flex-shrink: 2;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="item1 item">1</div>
-            <div class="item2 item">2</div>
-            <div class="item1 item">1</div>
-        </div>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex-shrink 属性</title>
+    <link rel="stylesheet" href="./init.css" />
+    <style>
+      body {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .container {
+        display: flex;
+        width: 500px;
+        height: 300px;
+        align-items: center;
+      }
+      .item {
+        width: 200px;
+      }
+      /* 
+        flex-shrink 属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
+      */
+      .item2 {
+        flex-shrink: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item1 item">1</div>
+      <div class="item2 item">2</div>
+      <div class="item1 item">1</div>
+    </div>
+  </body>
 </html>

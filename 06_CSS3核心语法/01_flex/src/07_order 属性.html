@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>order 属性</title>
-        <link rel="stylesheet" href="./init.css" />
-        <style>
-            body {
-                display: flex;
-                flex-wrap: wrap;
-            }
-            .container {
-                display: flex;
-                width: 800px;
-                height: 300px;
-                align-items: center;
-            }
-            .item {
-                width: 200px;
-            }
-            /* 
-              order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。
-            */
-            .item1 {
-                order: 2;
-            }
-            .item4 {
-                order: -1;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="item1 item">1</div>
-            <div class="item2 item">2</div>
-            <div class="item3 item">3</div>
-            <div class="item4 item">4</div>
-        </div>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>order 属性</title>
+    <link rel="stylesheet" href="./init.css" />
+    <style>
+      body {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .container {
+        display: flex;
+        width: 800px;
+        height: 300px;
+        align-items: center;
+      }
+      .item {
+        width: 200px;
+      }
+      /* 
+        order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。
+      */
+      .item1 {
+        order: 2;
+      }
+      .item4 {
+        order: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item1 item">1</div>
+      <div class="item2 item">2</div>
+      <div class="item3 item">3</div>
+      <div class="item4 item">4</div>
+    </div>
+  </body>
 </html>

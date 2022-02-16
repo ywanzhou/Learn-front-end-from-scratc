@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>定义弹性盒子模型</title>
+    <link rel="stylesheet" href="./init.css" />
+    <style>
+      /* 
+        将父级元素设置为弹性盒子模型
+        * 这样设置的话子级所有元素都为弹性盒子模型
+        * 默认情况下，所有子元素作为伸缩项目都是沿着主轴水平排列
+      */
+      .container {
+        display: flex;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HTML 结构为父子级结构 -->
+    <div class="container">
+      <div class="item1 item">1</div>
+      <div class="item2 item">2</div>
+      <div class="item3 item">3</div>
+    </div>
+  </body>
+</html>

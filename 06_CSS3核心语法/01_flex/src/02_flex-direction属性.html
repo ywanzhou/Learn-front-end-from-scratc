@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02 flex-direction属性</title>
+    <link rel="stylesheet" href="./init.css" />
+    <style>
+      body {
+        display: flex;
+      }
+      .container {
+        display: flex;
+        margin: 20px;
+      }
+      /* 
+        flex-direction 属性
+        * 作用：创建主轴方向
+        * 适用于伸缩容器元素
+        * 值
+            * row: 设置主轴是水平方向 默认
+            * row-reverse: 与 row 的方向相反
+            * column：设置主轴的方向是垂直方向
+            * column-reverse: 与column 方向相反
+        */
+      .row {
+        /* 默认，水平排列 */
+        flex-direction: row;
+        height: 200px;
+      }
+      .row-reverse {
+        /* 水平排列，反向 */
+        flex-direction: row-reverse;
+        height: 200px;
+      }
+      .column {
+        /* 垂直排列 */
+        flex-direction: column;
+        margin-right: 100px;
+      }
+      .column-reverse {
+        /* 垂直排列 反向 */
+        flex-direction: column-reverse;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container row">
+      <div class="item1 item">1</div>
+      <div class="item2 item">2</div>
+      <div class="item3 item">3</div>
+    </div>
+    <div class="container row-reverse">
+      <div class="item1 item">1</div>
+      <div class="item2 item">2</div>
+      <div class="item3 item">3</div>
+    </div>
+    <div class="container column">
+      <div class="item1 item">1</div>
+      <div class="item2 item">2</div>
+      <div class="item3 item">3</div>
+    </div>
+    <div class="container column-reverse">
+      <div class="item1 item">1</div>
+      <div class="item2 item">2</div>
+      <div class="item3 item">3</div>
+    </div>
+  </body>
+</html>

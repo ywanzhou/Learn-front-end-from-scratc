@@ -1,1 +1,1 @@
-<template><h1>根组件</h1></template>
+<template><h1>Root</h1></template>

@@ -1,5 +1,6 @@
 import RootComponent from './components/root.vue'
-export default [{
+export default [
+  {
     path: '/',
     // 引入组件
     component: RootComponent,
@@ -8,13 +9,16 @@ export default [{
     path: '/hello',
     // 路由懒加载引入组件
     component: () => import('./components/HelloWorld.vue'),
-    children: [{
-      path: '/about',
-      component: () => import()
-    },{
-      path: '/user',
-      component: () => import()
-    },]
+    children: [
+      {
+        path: 'about',
+        component: () => import('./components/about.vue'),
+      },
+      {
+        path: 'user',
+        component: () => import('./components/user.vue'),
+      },
+    ],
   },
   {
     path: '/:pathMatch(.*)',

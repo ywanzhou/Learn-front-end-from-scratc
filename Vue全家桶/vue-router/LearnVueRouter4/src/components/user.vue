@@ -1,8 +1,3 @@
 <template>
-  <h1>404</h1>
-  <p>{{ params.pathMatch }}</p>
+  <h1>user</h1>
 </template>
-<script setup>
-import { useRoute } from 'vue-router'
-const { params } = useRoute()
-</script>

@@ -1,0 +1,11 @@
+{
+  "name": "write_wp",
+  "version": "0.0.1",
+  "description": "手写webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ywanzhou",
+  "license": "MIT"
+}

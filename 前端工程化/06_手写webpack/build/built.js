@@ -105,7 +105,7 @@
   './src/index.js':
     /*! no static exports found */
     function (module, exports) {
-      console.log('这个是index.js')
+      console.log('一碗周的测试代码')
       module.exports = 'index.js导出的内容'
     },
 })

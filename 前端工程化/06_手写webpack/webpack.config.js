@@ -1,16 +1,16 @@
-const path = require("path")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
-  devtool: "none",
-  mode: "development",
-  entry: "./src/index.js",
+  devtool: 'none',
+  mode: 'development',
+  entry: './src/index.js',
   output: {
-    filename: "built.js",
-    path: path.resolve("dist"),
+    filename: 'built.js',
+    path: path.resolve('build'),
   },
-  plugin: [
+  plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: './src/index.html',
     }),
   ],
 }

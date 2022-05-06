@@ -10,5 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "webpack": "^4.46.0"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^4.5.2"
   }
 }

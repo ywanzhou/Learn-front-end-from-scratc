@@ -1,25 +1,21 @@
 ;(function (modules) {
-  // webpackBootstrap
-  // The module cache
-  // 缓存被加载过的模块
+  // 用于缓存已经加载的模块
   var installedModules = {}
 
-  // The require function
-  // 这个方法的作用是根据 modules 中的 key 返回模块的 exports
+  // 一个加载方法，核心功能返回模块中导出的内容
   function __webpack_require__(moduleId) {
-    // Check if module is in cache 判断缓存中是否存在 存在则直接使用缓存中的
+    // Check if module is in cache
     if (installedModules[moduleId]) {
       return installedModules[moduleId].exports
     }
     // Create a new module (and put it into the cache)
     var module = (installedModules[moduleId] = {
       i: moduleId,
-      l: false, // 是否为加载 false 表示未加载
+      l: false,
       exports: {},
     })
 
     // Execute the module function
-    // 找到 modules 中的具体函数进行调用，执行完毕后会将该模块导出的内容挂载到 module.exports 上
     modules[moduleId].call(
       module.exports,
       module,
@@ -28,31 +24,37 @@
     )
 
     // Flag the module as loaded
-    module.l = true // 修改为已经被加载
+    module.l = true
 
     // Return the exports of the module
-    // 返回模块的 exports
     return module.exports
   }
 
-  // expose the modules object (__webpack_modules__)
+  // 将所有模块引用保存到 __webpack_require__.m
   __webpack_require__.m = modules
 
-  // expose the module cache
+  // 保存一下缓存
   __webpack_require__.c = installedModules
 
   // define getter function for harmony exports
+  // 为某个对象增加某个属性，并增加一个 getter 访问器
   __webpack_require__.d = function (exports, name, getter) {
+    // 判断 exports 是否具有 name 属性，如果不具有，条件成立，进入 if 语句
     if (!__webpack_require__.o(exports, name)) {
+      // 为 exports 增加一个 name 的属性，是可枚举的 以及 getter 时触发的方法
       Object.defineProperty(exports, name, { enumerable: true, get: getter })
     }
   }
 
   // define __esModule on exports
+  // 为 exports 增加一个标记，用于标记是否为 ESModule 模块
   __webpack_require__.r = function (exports) {
+    // 下面条件如果成立，说明是 ESModule
     if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+      // Object.prototype.toString.call(exports) -> Module
       Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' })
     }
+    // 为 exports 增加一个 __esModule 属性，将其值设置为 true
     Object.defineProperty(exports, '__esModule', { value: true })
   }
 
@@ -62,6 +64,8 @@
   // mode & 4: return value when already ns object
   // mode & 8|1: behave like require
   __webpack_require__.t = function (value, mode) {
+    // 1. 调用 t 方法之后，会拿到被加载模块中的 value
+    // 2. 对于 value 来说我们可能直接返回，也有可能处理之后在返回
     if (mode & 1) value = __webpack_require__(value)
     if (mode & 8) return value
     if (mode & 4 && typeof value === 'object' && value && value.__esModule)
@@ -83,6 +87,7 @@
 
   // getDefaultExport function for compatibility with non-harmony modules
   __webpack_require__.n = function (module) {
+    // 判断 module && module.__esModule 返回 module 还是 module['default']
     var getter =
       module && module.__esModule
         ? function getDefault() {
@@ -91,33 +96,32 @@
         : function getModuleExports() {
             return module
           }
+    // 判断 a 是否存在，如果不存在增加一个getter，并返回
     __webpack_require__.d(getter, 'a', getter)
     return getter
   }
 
   // Object.prototype.hasOwnProperty.call
+  // 判断 object 是否具有 property 属性
   __webpack_require__.o = function (object, property) {
     return Object.prototype.hasOwnProperty.call(object, property)
   }
 
-  // __webpack_public_path__ 公共访问路径
+  // __webpack_public_path__ public_path
   __webpack_require__.p = ''
 
   // Load entry module and return exports
-  return __webpack_require__((__webpack_require__.s = './src/index.js'))
+  return __webpack_require__(
+    (__webpack_require__.s /* s用于缓存主入口 */ = './src/index.js')
+  )
 })({
-  // 该对象中的键为模块的id
-  './src/index.js':
-    /*! no static exports found */
-    function (module, exports) {
-      console.log('一碗周的测试代码')
-      module.exports = 'index.js导出的内容'
-    },
+  './src/index.js': function (module, exports, __webpack_require__) {
+    const name = __webpack_require__(/*! ./user.js */ './src/user.js')
+    console.log(name)
+    console.log('这个是index.js')
+  },
+
+  './src/user.js': function (module, exports) {
+    module.exports = '一碗周'
+  },
 })
-/**
- * 1. 打包后的文件就是一个自执行函数，调用时传递一个对象
- * 2. 传递的对象中的键是文件名与路径的拼接，值就是某个模块，它是一个函数
- * 3. 这个模块与 node.js 中的模块加载有些类似，会将被加载的模块内容包裹在一个函数中
- * 4. 这个函数在某个时间点被调用，同时会接受一定的参数，利用这些参数实现模块加载操作
- * 5. modules 这个参数最终的值就是所有模块的一个集合
- */

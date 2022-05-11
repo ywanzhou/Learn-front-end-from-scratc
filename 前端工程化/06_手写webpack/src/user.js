@@ -1,4 +1,5 @@
-// 使用 ESModule 导出
-
-export default '一碗周'
-export const hobby = 'coding'
+// 使用 CommonJS 导出
+module.exports = {
+  name: '一碗周',
+  hobby: 'coding',
+}

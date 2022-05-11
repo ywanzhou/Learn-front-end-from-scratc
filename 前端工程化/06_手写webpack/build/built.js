@@ -4,29 +4,21 @@
 
   // 一个加载方法，核心功能返回模块中导出的内容
   function __webpack_require__(moduleId) {
-    // Check if module is in cache
     if (installedModules[moduleId]) {
       return installedModules[moduleId].exports
     }
-    // Create a new module (and put it into the cache)
     var module = (installedModules[moduleId] = {
       i: moduleId,
       l: false,
       exports: {},
     })
-
-    // Execute the module function
     modules[moduleId].call(
       module.exports,
       module,
       module.exports,
       __webpack_require__
     )
-
-    // Flag the module as loaded
     module.l = true
-
-    // Return the exports of the module
     return module.exports
   }
 
@@ -36,7 +28,6 @@
   // 保存一下缓存
   __webpack_require__.c = installedModules
 
-  // define getter function for harmony exports
   // 为某个对象增加某个属性，并增加一个 getter 访问器
   __webpack_require__.d = function (exports, name, getter) {
     // 判断 exports 是否具有 name 属性，如果不具有，条件成立，进入 if 语句
@@ -46,7 +37,6 @@
     }
   }
 
-  // define __esModule on exports
   // 为 exports 增加一个标记，用于标记是否为 ESModule 模块
   __webpack_require__.r = function (exports) {
     // 下面条件如果成立，说明是 ESModule
@@ -85,7 +75,7 @@
     return ns
   }
 
-  // getDefaultExport function for compatibility with non-harmony modules
+  // 兼容 ESModule 的默认导出与普通导出
   __webpack_require__.n = function (module) {
     // 判断 module && module.__esModule 返回 module 还是 module['default']
     var getter =
@@ -101,16 +91,14 @@
     return getter
   }
 
-  // Object.prototype.hasOwnProperty.call
   // 判断 object 是否具有 property 属性
   __webpack_require__.o = function (object, property) {
     return Object.prototype.hasOwnProperty.call(object, property)
   }
 
-  // __webpack_public_path__ public_path
+  // 公共路径
   __webpack_require__.p = ''
 
-  // Load entry module and return exports
   return __webpack_require__(
     (__webpack_require__.s /* s用于缓存主入口 */ = './src/index.js')
   )

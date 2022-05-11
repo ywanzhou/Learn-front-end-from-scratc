@@ -1,3 +1,2 @@
-const name = require('./user.js')
-console.log(name)
-console.log('这个是index.js')
+const user = require('./user.js')
+console.log(`${user.default} --- ${user.hobby}`)

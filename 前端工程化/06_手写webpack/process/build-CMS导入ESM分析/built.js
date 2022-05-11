@@ -67,28 +67,25 @@
     return Object.prototype.hasOwnProperty.call(object, property)
   }
   __webpack_require__.p = ''
-
-  // Load entry module and return exports
   return __webpack_require__((__webpack_require__.s = './src/index.js'))
 })({
   './src/index.js': function (module, exports, __webpack_require__) {
     const user = __webpack_require__(/*! ./user.js */ './src/user.js')
     console.log(`${user.default} --- ${user.hobby}`)
   },
-
   './src/user.js': function (module, __webpack_exports__, __webpack_require__) {
-    'use strict'
+    module = {
+      i: './src/user.js',
+      l: false,
+      exports: {},
+    }
+    ;('use strict')
     __webpack_require__.r(__webpack_exports__)
-    /* harmony export (binding) */ __webpack_require__.d(
-      __webpack_exports__,
-      'hobby',
-      function () {
-        return hobby
-      }
-    )
+    __webpack_require__.d(__webpack_exports__, 'hobby', function () {
+      return hobby
+    })
     // 使用 ESModule 导出
-
-    /* harmony default export */ __webpack_exports__['default'] = '一碗周'
+    __webpack_exports__['default'] = '一碗周' // 默认导出
     const hobby = 'coding'
   },
 })

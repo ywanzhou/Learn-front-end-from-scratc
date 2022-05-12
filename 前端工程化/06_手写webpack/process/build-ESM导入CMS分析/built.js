@@ -84,10 +84,11 @@
   ) {
     'use strict'
     __webpack_require__.r(__webpack_exports__)
-    /* harmony import */ var _user_js__WEBPACK_IMPORTED_MODULE_0__ =
-      __webpack_require__(/*! ./user.js */ './src/user.js')
-    /* harmony import */ var _user_js__WEBPACK_IMPORTED_MODULE_0___default =
-      /*#__PURE__*/ __webpack_require__.n(_user_js__WEBPACK_IMPORTED_MODULE_0__)
+    var _user_js__WEBPACK_IMPORTED_MODULE_0__ =
+      __webpack_require__('./src/user.js')
+    var _user_js__WEBPACK_IMPORTED_MODULE_0___default = __webpack_require__.n(
+      _user_js__WEBPACK_IMPORTED_MODULE_0__
+    )
 
     // 使用 ESModule 导入 CommonJS的内容
     console.log(
@@ -95,7 +96,6 @@
     )
   },
   './src/user.js': function (module, exports) {
-    // 使用 CommonJS 导出
     module.exports = {
       name: '一碗周',
       hobby: 'coding',

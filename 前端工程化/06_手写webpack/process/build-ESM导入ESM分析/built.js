@@ -88,8 +88,8 @@
   ) {
     'use strict'
     __webpack_require__.r(__webpack_exports__)
-    /* harmony import */ var _user_js__WEBPACK_IMPORTED_MODULE_0__ =
-      __webpack_require__(/*! ./user.js */ './src/user.js')
+    var _user_js__WEBPACK_IMPORTED_MODULE_0__ =
+      __webpack_require__('./src/user.js')
 
     console.log(
       `${_user_js__WEBPACK_IMPORTED_MODULE_0__['default']} --- ${_user_js__WEBPACK_IMPORTED_MODULE_0__['hobby']}`
@@ -99,14 +99,10 @@
   './src/user.js': function (module, __webpack_exports__, __webpack_require__) {
     'use strict'
     __webpack_require__.r(__webpack_exports__)
-    /* harmony export (binding) */ __webpack_require__.d(
-      __webpack_exports__,
-      'hobby',
-      function () {
-        return hobby
-      }
-    )
-    /* harmony default export */ __webpack_exports__['default'] = '一碗周'
+    __webpack_require__.d(__webpack_exports__, 'hobby', function () {
+      return hobby
+    })
+    __webpack_exports__['default'] = '一碗周'
     const hobby = 'coding'
   },
 })

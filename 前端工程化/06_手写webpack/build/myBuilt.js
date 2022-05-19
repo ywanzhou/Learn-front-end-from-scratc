@@ -75,12 +75,22 @@
   return __webpack_require__((__webpack_require__.s = './src/index.js'))
 })({
   './src/index.js': function (module, exports, __webpack_require__) {
-    const name = __webpack_require__(/*! ./user.js */ './src/user.js')
-    console.log(name)
-    console.log('这个是index.js')
+    const user = __webpack_require__(/*! ./user.js */ './src/user.js')
+    console.log(`${user.default} --- ${user.hobby}`)
   },
-
-  './src/user.js': function (module, exports) {
-    module.exports = '一碗周'
+  './src/user.js': function (module, __webpack_exports__, __webpack_require__) {
+    module = {
+      i: './src/user.js',
+      l: false,
+      exports: {},
+    }
+    ;('use strict')
+    __webpack_require__.r(__webpack_exports__)
+    __webpack_require__.d(__webpack_exports__, 'hobby', function () {
+      return hobby
+    })
+    // 使用 ESModule 导出
+    __webpack_exports__['default'] = '一碗周' // 默认导出
+    const hobby = 'coding'
   },
 })

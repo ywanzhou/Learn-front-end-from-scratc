@@ -83,19 +83,19 @@
     __webpack_require__.r(__webpack_exports__)
     var _user_js__WEBPACK_IMPORTED_MODULE_0__ =
       __webpack_require__('./src/user.js')
-    var _user_js__WEBPACK_IMPORTED_MODULE_0___default = __webpack_require__.n(
-      _user_js__WEBPACK_IMPORTED_MODULE_0__
-    )
 
-    // 使用 ESModule 导入 CommonJS的内容
     console.log(
-      `${_user_js__WEBPACK_IMPORTED_MODULE_0___default.a.name} --- ${_user_js__WEBPACK_IMPORTED_MODULE_0___default.a.hobby}`
+      `${_user_js__WEBPACK_IMPORTED_MODULE_0__['default']} --- ${_user_js__WEBPACK_IMPORTED_MODULE_0__['hobby']}`
     )
   },
-  './src/user.js': function (module, exports) {
-    module.exports = {
-      name: '一碗周',
-      hobby: 'coding',
-    }
+
+  './src/user.js': function (module, __webpack_exports__, __webpack_require__) {
+    'use strict'
+    __webpack_require__.r(__webpack_exports__)
+    __webpack_require__.d(__webpack_exports__, 'hobby', function () {
+      return hobby
+    })
+    __webpack_exports__['default'] = '一碗周'
+    const hobby = 'coding'
   },
 })
